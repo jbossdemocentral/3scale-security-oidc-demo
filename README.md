@@ -7,6 +7,8 @@ _Securing APIs with OpenID Connect using 3scale API Management and Red Hat Singl
 * Red Hat Openshift Container Platform
 * Red Hat 3scale API Management
 * Red Hat Single Sign On
+* Red Hat Fuse
+* Red Hat AMQ
 
 **Provisioning Time:** ~15 min
 
@@ -26,6 +28,6 @@ _Securing APIs with OpenID Connect using 3scale API Management and Red Hat Singl
 
 <TODO>
 
-### Support & Ownership**
+### Support & Ownership
 
 Feel free to ask [Hugo Guerrero](hguerrer@redhat.com) if you need some support when there are any questions left or if you need some support.
