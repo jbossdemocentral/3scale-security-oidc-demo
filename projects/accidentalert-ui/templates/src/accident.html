@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
+
+	<title>Shadowman Insurance | File Accident Report</title>
+
+	<!-- Loading third party fonts -->
+	<link href="http://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700|" rel="stylesheet" type="text/css">
+	<link href="assets/fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="assets/fonts/lineo-icon/style.css" rel="stylesheet" type="text/css">
+
+	<link rel="stylesheet" href="assets/css/patternfly.min.css">
+	<link rel="stylesheet" href="assets/css/bootstrap-datepicker.min.css">
+
+	<!-- Loading main css file -->
+	<link rel="stylesheet" href="assets/css/styles.min.css">
+
+	<script src="http://localhost:18080/auth/js/keycloak.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="js/ie-support/html5.js"></script>
+		<script src="js/ie-support/respond.js"></script>
+		<![endif]-->
+
+</head>
+
+
+<body>
+
+	<div id="site-content">
+		<header class="site-header">
+			<div class="top-header">
+				<div class="container">
+					<a href="index.html" id="branding">
+						<img src="assets/img/logo.png" alt="Shadowman Insurance" class="logo">
+						<div class="logo-text">
+							<h1 class="site-title">Shadowman Insurance</h1>
+							<small class="description">Shadowman protectes you</small>
+						</div>
+					</a>
+					<!-- #branding -->
+
+					<div class="right-section pull-right">
+						<a href="#" class="phone">
+							<img src="assets/img/icon-phone.png" class="icon">+1 823 424 9134</a>
+
+						<form action="#" class="search-form">
+							<input type="text" placeholder="Search...">
+							<button type="submit">
+								<img src="assets/img/icon-search.png" alt="">
+							</button>
+						</form>
+					</div>
+				</div>
+				<!-- .container -->
+			</div>
+			<!-- .top-header -->
+
+
+			<div class="bottom-header">
+				<div class="container">
+					<div class="main-navigation">
+						<button type="button" class="menu-toggle">
+							<i class="fa fa-bars"></i>
+						</button>
+						<ul class="menu">
+							<li class="menu-item">
+								<a href="claim.html">Claims</a>
+							</li>
+							<li class="menu-item current-menu-item">
+								<a href="accident.html">Accidents</a>
+							</li>
+							<li class="menu-item">
+								<a href="contact.html">Contact</a>
+							</li>
+						</ul>
+						<!-- .menu -->
+					</div>
+					<!-- .main-navigation -->
+
+					<div class="social-links">
+						<a href="#">
+							<i class="fa fa-facebook"></i>
+						</a>
+						<a href="#">
+							<i class="fa fa-twitter"></i>
+						</a>
+						<a href="#">
+							<i class="fa fa-google-plus"></i>
+						</a>
+						<a href="#">
+							<i class="fa fa-pinterest"></i>
+						</a>
+					</div>
+
+					<div class="mobile-navigation"></div>
+				</div>
+			</div>
+
+		</header>
+		<!-- .site-header -->
+
+		<main class="main-content">
+			<div class="breadcrumbs">
+				<div class="container">
+					<a href="index.html">Home</a>
+					<span>Accident</span>
+				</div>
+			</div>
+
+			<div class="page">
+				<div class="container">
+					<h3 class="entry-title">Tell us what happened</h3>
+					<p>Nam posuere purus vitae est sollicitudin placerat. Praesent posuere porta dignissim. Phasellus viverra, urna a convallis
+						tincidunt, ante mi tempor turpis, nec tempor mauris ligula ut sapien. Etiam euismod mi eu ante mollis commodo. Suspendisse
+						porta nisi vitae dui hendrerit, eget ornare orci semper. Phasellus pharetra, erat sit amet rutrum porttitor, est eros
+						consectetur elit, molestie consequat erat tellus in dui. Vestibulum a vehicula sem. Nullam commodo quis purus in volutpat.
+						Integer semper lacus a lorem efficitur auctor curabitur tincidunt ligula non.</p>
+
+					<a id="loginUrl" href="#" class="btn btn-primary btn-lg">Log In to file a report</a>
+				</div>
+
+				<div id="accident-app" class="app container" style="display:none">
+					<div class="row">
+
+						<div id="success-notification" class="alert alert-success alert-dismissable">
+							<button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+								<span class="pficon pficon-close"></span>
+							</button>
+							<span class="pficon pficon-ok"></span>
+							<strong>Report Filed!</strong> This is really working out
+							<a href="#" class="alert-link">great for us</a>.
+						</div>
+						<div class="col-md-8">
+							<h4>Your Report Information:</h4>
+
+							<form id="report">
+								<div class="form-group">
+									<label for="contactName" class="required-pf">Contact Name:</label>
+									<input type="text" class="form-control" name="contactName" id="contactName" placeholder="Contact Name">
+								</div>
+								<div class="form-group">
+									<label for="email" class="required-pf">Email:</label>
+									<input type="email" class="form-control" name="email" id="email" placeholder="Email">
+								</div>
+								<div class="form-group">
+									<label for="phone" class="required-pf">Phone:</label>
+									<input type="text" class="form-control" name="phone" id="phone" placeholder="Phone">
+								</div>
+								<div class="form-group">
+									<label for="accidentdate" class="required-pf">Date:</label>
+									<input type="text" class="form-control bootstrap-datepicker" name="date" id="accidentdate" placeholder="Date">
+								</div>
+								<label class="required-pf">Type:</label>
+								<label class="radio-inline">
+									<input type="radio" name="type" id="carType" value="car"> Car
+								</label>
+								<label class="radio-inline">
+									<input type="radio" name="type" id="houseType" value="house"> House
+								</label>
+								<label class="radio-inline">
+									<input type="radio" name="type" id="lifeType" value="life"> Life
+								</label>
+								<div class="form-group">
+									<label for="description" class="required-pf">Description:</label>
+									<textarea id="description" class="form-control" name="description" rows="3" placeholder="Please add a detailed description of the accident"></textarea>
+								</div>
+								<span class="pull-right chars-remaining-pf">
+									<span id="charRemainingCntFld"></span>
+									<a id="postReport" type="submit" class="btn btn-primary btn-lg">Submit Report</a>
+								</span>
+							</form>
+							<p></p>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<!-- .page -->
+		</main>
+
+		<div class="site-footer">
+			<div class="widget-area">
+				<div class="container">
+					<div class="row">
+						<div class="col-xs-12 col-sm-4 col-md-2">
+							<div class="widget">
+								<h3 class="widget-title">Contact</h3>
+								<address> Company Name INC. 523 Burt Street, Omaha
+								</address>
+								<a href="#">Phone: +1 823 424 9134</a>
+								<a href="mailto:info@company.com">info@company.com</a>
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-4 col-md-2">
+							<div class="widget">
+								<h3 class="widget-title">Company</h3>
+								<ul class="no-bullet">
+									<li>
+										<a href="#">About us</a>
+									</li>
+									<li>
+										<a href="#">Infoline</a>
+									</li>
+									<li>
+										<a href="#">Team</a>
+									</li>
+									<li>
+										<a href="#">Join us</a>
+									</li>
+									<li>
+										<a href="#">Cooperation</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-4 col-md-2">
+							<div class="widget">
+								<h3 class="widget-title">Products</h3>
+								<ul class="no-bullet">
+									<li>
+										<a href="#">Life insurance</a>
+									</li>
+									<li>
+										<a href="#">Home insurance</a>
+									</li>
+									<li>
+										<a href="#">Car insurance</a>
+									</li>
+									<li>
+										<a href="#">Business insurance</a>
+									</li>
+									<li>
+										<a href="#">Investment insurance</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-4 col-md-2">
+							<div class="widget">
+								<h3 class="widget-title">Our Solutions</h3>
+								<ul class="no-bullet">
+									<li>
+										<a href="#">Presentation</a>
+									</li>
+									<li>
+										<a href="#">Testimonials</a>
+									</li>
+									<li>
+										<a href="#">Examples</a>
+									</li>
+									<li>
+										<a href="#">Our experts</a>
+									</li>
+									<li>
+										<a href="#">Resources</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-4 col-md-2">
+							<div class="widget">
+								<h3 class="widget-title">Press Room</h3>
+								<ul class="no-bullet">
+									<li>
+										<a href="#">Advertisement</a>
+									</li>
+									<li>
+										<a href="#">Interviews</a>
+									</li>
+									<li>
+										<a href="#">Hot news</a>
+									</li>
+									<li>
+										<a href="#">Photos</a>
+									</li>
+									<li>
+										<a href="#">Marketing</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-4 col-md-2">
+							<div class="widget">
+								<h3 class="widget-title">Resources</h3>
+								<ul class="no-bullet">
+									<li>
+										<a href="#">Sed imperdiet magna</a>
+									</li>
+									<li>
+										<a href="#">Pellentesque molestie</a>
+									</li>
+									<li>
+										<a href="#">Nulla luctus cursus</a>
+									</li>
+									<li>
+										<a href="#">Ligula vel lacinia</a>
+									</li>
+									<li>
+										<a href="#">Mauris scelerisque</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="bottom-footer">
+				<div class="container">
+					<nav class="footer-navigation">
+						<a href="#">Home</a>
+						<a href="#">About us</a>
+						<a href="#">Insurance plans</a>
+						<a href="#">Resources</a>
+						<a href="#">Contact</a>
+					</nav>
+
+					<div class="colophon">Copyright 2018 Red Hat. Designed by Themezy. All rights reserved.</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery-1.11.1.min.min.js"></script>
+	<script src="assets/js/bootstrap-datepicker.min.js"></script>
+	<script src="assets/js/patternfly.min.js"></script>
+	<script src="assets/js/plugins.min.js"></script>
+	<script src="assets/js/app.min.js"></script>
+
+	<script type="text/javascript">
+		// Initialize Boostrap-Datepicker
+		$('.bootstrap-datepicker, .input-group.date, .bootstrap-datepicker-inline').datepicker({
+			autoclose: true,
+			orientation: "top auto",
+			todayBtn: "linked",
+			todayHighlight: true
+		});
+		$('.input-daterange').datepicker({
+			autoclose: true,
+			todayBtn: "linked",
+			todayHighlight: true
+		});
+		$('#success-notification').hide();
+		(function ($) {
+			// countFld is the id of the field where you want the 'remaining chars. count' number
+			// to be displayed.
+			$('#description').countRemainingChars({
+				countFld: 'charRemainingCntFld',
+				charsMaxLimit: 250,
+				charsWarnRemaining: 5,
+				blockInputAtMaxLimit: false
+			});
+
+			// taId is the id of the textArea field which triggered the event
+			$('#description').on("overCharsMaxLimitEvent", function (event, taId) {
+				$('#postReport').prop("disabled", true);
+			});
+			$('#description').on("underCharsMaxLimitEvent", function (event, taId) {
+				$('#postReport').prop("disabled", false);
+			});
+
+			$('#postReport').click(function () {
+				$.ajax({
+					type: "post",
+					contentType: "application/json",
+					url: "http://localhost:8080/accidentcenter/report",
+					dataType: "json",
+					data: JSON.stringify($('#report').serializeObject()),
+					success: function (data) {
+						$('#success-notification').show();
+					},
+					error: function (req, error) {
+						console.log(error);
+					}
+				});
+			});
+		})(jQuery);
+	</script>
+
+
+	<script type="text/javascript">
+		var keyOptions = {
+			url: 'http://localhost:18080/auth',
+			realm: 'insurance',
+			clientId: 'accidentalert-ui'
+		};
+		var keycloak = Keycloak(keyOptions);
+		keycloak.init({ onLoad: 'check-sso' }).success(function (authenticated) {
+			console.log(authenticated ? 'authenticated' : 'not authenticated');
+			if (authenticated) {
+				if (keycloak.hasRealmRole('policedept')) {
+					$('#accident-app').show();
+				}
+				else {
+					alert('User cannot file reports');
+				}
+				$('#loginUrl').hide();
+			}
+			else {
+				$('#accident-app').hide();
+				$('#loginUrl').show();
+			}
+		}).error(function () {
+			console.log('failed to initialize: ' + data);
+		});
+		var opts = {
+			redirectUri: window.location.origin + "/accident.html"
+		};
+		var loginUrl = keycloak.createLoginUrl(opts);
+		document.getElementById('loginUrl').href = loginUrl;
+	</script>
+
+</body>
+
+</html>

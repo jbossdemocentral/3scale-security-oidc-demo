@@ -1,0 +1,37 @@
+{
+  "realm" : "insurance",
+  "sslRequired" : "none",
+  "registrationAllowed" : false,
+  "enabled": true,
+  "displayName" : "Red Hat Insurance",
+  "users" : [ {
+    "id" : "1",
+    "username" : "statepolice",
+    "enabled" : true,
+    "email" : "statepolice@openshift.opentlc.com",
+    "credentials" : [ {
+      "type" : "password",
+      "value" : "password"
+    } ],
+    "realmRoles" : [ "policedept" ],
+    "clientRoles" : {
+      "account" : [ "manage-account", "view-profile" ]
+    }
+  } ],
+  "roles" : {
+    "realm" : [ {
+      "name" : "policedept",
+      "description" : "Law Enforcement Role"
+      } ]
+  },
+  "scopeMappings": [],
+  "clients" : [ {
+    "id" : "1",
+    "clientId" : "3scale-admin",
+    "protocol" : "openid-connect",
+    "standardFlowEnabled" : false,
+    "directAccessGrantsEnabled" : false,
+    "serviceAccountsEnabled" : true,
+    "publicClient" : false
+  } ]
+}

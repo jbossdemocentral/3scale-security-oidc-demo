@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:camel="http://camel.apache.org/schema/spring"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd        http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
+    <bean class="org.redhat.demo.InputConvertor" id="inputConvertor"/>
+    <camelContext id="camel" xmlns="http://camel.apache.org/schema/spring">
+        <restConfiguration apiContextPath="api-docs" bindingMode="json"
+            component="servlet" contextPath="/accidentcenter" enableCORS="true">
+            <apiProperty key="cors" value="true"/>
+            <apiProperty key="api.title" value="My Accident Center"/>
+            <apiProperty key="api.version" value="1.0.0"/>
+            <apiProperty key="cors" value="true"/>
+            <apiProperty key="api.title" value="FIS Gateway"/>
+            <apiProperty key="api.version" value="1.0.0"/>
+        </restConfiguration>
+        <rest path="/">
+            <post uri="report" type="org.redhat.demo.data.Accident">
+                <description>Report an accident</description>
+                <to uri="direct:report"/>
+            </post>
+        </rest>
+        <route id="report">
+            <from id="report" uri="direct:report"/>
+            <marshal id="_unmarshal1">
+                <json library="Jackson"/>
+            </marshal>
+            <log id="log-body" message="${body}"/>
+            <to id="_tomq" uri="amq:topic:alert?exchangePattern=InOnly"/>
+            <setBody id="_setBody1">
+                <constant>{'status':'done'}</constant>
+            </setBody>
+        </route>
+    </camelContext>
+</beans>
