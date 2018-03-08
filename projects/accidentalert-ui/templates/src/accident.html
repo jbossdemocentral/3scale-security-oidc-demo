@@ -366,18 +366,25 @@
 			});
 
 			$('#postReport').click(function () {
-				$.ajax({
-					type: "post",
-					contentType: "application/json",
-					url: "http://localhost:8080/accidentcenter/report",
-					dataType: "json",
-					data: JSON.stringify($('#report').serializeObject()),
-					success: function (data) {
-						$('#success-notification').show();
-					},
-					error: function (req, error) {
-						console.log(error);
-					}
+				keycloak.updateToken(30).success(function () {
+					$.ajax({
+						type: "post",
+						contentType: "application/json",
+						headers: {
+							'Authorization': 'Bearer ' + keycloak.token
+						},
+						url: "http://localhost:8080/accidentcenter/report",
+						dataType: "json",
+						data: JSON.stringify($('#report').serializeObject()),
+						success: function (data) {
+							$('#success-notification').show();
+						},
+						error: function (req, error) {
+							console.log(error);
+						}
+					});
+				}).error(function () {
+					console.log('Failed to refresh token');
 				});
 			});
 		})(jQuery);
