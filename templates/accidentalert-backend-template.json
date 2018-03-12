@@ -25,13 +25,13 @@
         "name": "GIT_REPO",
         "displayName": "Git Repository URL",
         "required": true,
-        "value": "https://github.com/hguerrero/3scale-examples.git",
+        "value": "https://github.com/jbossdemocentral/3scale-security-oidc-demo.git",
         "description": "The URL of the repository with your application source code."
       },
       {
         "name": "CONTEXT_DIR",
         "displayName": "Git Repository context",
-        "value": "/security-oidc/projects/myaccidentalert",
+        "value": "/projects/myaccidentalert",
         "description": "Path within Git project to build; empty for root project directory."
       },
       {
