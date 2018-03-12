@@ -62,10 +62,10 @@
                "source": {
                   "type": "Git",
                   "git": {
-                     "uri": "https://github.com/hguerrero/3scale-examples.git",
+                     "uri": "https://github.com/jbossdemocentral/3scale-security-oidc-demo.git",
                      "ref": "master"
                   },
-                  "contextDir":"/security-oidc/projects/accidentalert-ui"
+                  "contextDir":"/projects/accidentalert-ui"
                },
                "strategy": {
                   "type": "Source",
