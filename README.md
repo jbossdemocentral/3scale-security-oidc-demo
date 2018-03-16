@@ -43,6 +43,8 @@ Shadowman Insurance CSO (Chief Security Officer) requested that all external fac
 
 ## Installation
 
+Follow this instructions to setup a working demo environment.
+
 ### Prerequisites
 
 * OpenShift Container Platform 3.6
