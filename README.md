@@ -65,7 +65,7 @@ Follow this instructions to setup a working demo environment.
     $ for i in {https,mysql,mysql-persistent,postgresql,postgresql-persistent}; do oc create -f https://raw.githubusercontent.com/jboss-openshift/application-templates/ose-v1.4.7/sso/sso71-$i.json -n openshift; done
     ```
 
-1. Create project for Red Hat Single Sign On
+1. Create project for Red Hat Single Sign On.
 
     ```
     $ oc new-project rh-sso --display-name='Red Hat Single Sign On'
@@ -74,7 +74,7 @@ Follow this instructions to setup a working demo environment.
     $ oc new-app sso71-mysql-persistent -p HTTPS_NAME=jboss -p HTTPS_PASSWORD=mykeystorepass -p SSO_ADMIN_USERNAME=keyadmin -p SSO_ADMIN_PASSWORD=keypassword
     ```
 
-1. Create project for API Implementation
+1. Create project for API Implementation.
 
     ```
     $ oc new-project service --display-name='Alert Center Backend Service'
@@ -89,16 +89,34 @@ Follow this instructions to setup a working demo environment.
     $ oc process -f https://raw.githubusercontent.com/jbossdemocentral/3scale-security-oidc-demo/master/support/templates/accidentalert-ui-template.json -p SSO_URL='https://secure-sso-rh-sso.apps.d2a7.openshift.opentlc.com' -p BACKEND_URL='http://accidentalert-backend-service.apps.d2a7.openshift.opentlc.com' -p APPLICATION_HOSTNAME='www-accidentalert-ui.apps.d2a7.openshift.opentlc.com' | oc create -f -
     ```
 
-1. Create project for 3scale
+1. Create project for 3scale.
 
     ```
     $ oc new-project threescale
     $ oc new-app -f https://raw.githubusercontent.com/3scale/3scale-amp-openshift-templates/2.1.0-GA/amp/amp.yml --param WILDCARD_DOMAIN=amp.apps.d2a7.openshift.opentlc.com --param ADMIN_PASSWORD=password --param WILDCARD_POLICY=Subdomain
     ```
 
-## Usage
+## Config
 
-<TODO>
+1. Import the insurance [realm](support/templates/insurance-realm.json) into Red Hat Single Sign On.
+1. Add role 'manage-clients' to the 3sale-admin client's service account.
+1. Write down the service account secret.
+1. Create the backend service in 3scale. 
+    1. Select OIDC as authentication mechanism.
+    1. Set name "Accident Report API"
+    1. Set system name "accidentalert"
+1. Create an application plan.
+    1. Set name "Law Enforcement"
+    1. Set system name "lawenforcement"
+    1. Publish the plan
+1. Config the backend service API.
+    1. Fill in the Private Base URL with the backend service OpenShift route.
+    1. Fill in the information of the RH SSO endpoint for 3scale zync.
+1. Create the accidentalert-ui application.
+    1. Set description "Accident Report Web Application"
+    1. Set name "Accident Report App"
+1. Make the application client public in RH SSO.
+1. Update the application clientId in the web ui code.
 
 ### Support & Ownership
 
