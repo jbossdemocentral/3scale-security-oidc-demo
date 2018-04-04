@@ -14,23 +14,25 @@ _Securing APIs with OpenID Connect using 3scale API Management and Red Hat Singl
 
 **Guide:** 
 
+**Video:** 
+
+[![API Security with OpenID Connect](docs/images/video-thumbnail.png)](https://vimeo.com/259970326 "API Security with OpenID Connect - Click to Watch!")
+
 **Github Repo:** http://github.com/jbossdemocentral/3scale-security-oidc-demo
 
 ## Background
 
-Shadowman Insurance Corporation is one of the largest providers of car and life insurance in the country. The company also insures motorcycles, boats, RVs and commercial vehicles, and provides home insurance through select companies. Being one of the largest auto insurers, with over 13 million policies in force. Shadowman Insurance primarily offers its services through the Internet or by phone and through partner independent insurance agents.
+Shadowman Insurance Corporation is one of the largest insurance providers in the country. Shadowman Insurance primarily offers its services through the Internet and through partner independent insurance agents. To stay competitive, they decide to start the new "Digital transformation Project" by transforming their entire business and organizational activities, processes to fully leverage the digital technologies. 
 
-To stay competitive, they decide to start the new "Digital transformation Project" by transforming their entire business and organizational activities, processes to fully leverage the digital technologies. Part of their project is expand their partner ecosystem and enhance their customer experience.
+### Accident Alerts
 
-### Accident alert and Claim
-
-Shadowman Insurance partner accident customer helpdesk center collects report of the clients and report back to Shadowman daily. And would like to automate and kick off the claim process for their client. as well as allowing instant report from partner systems. Shadowman Insurance Corporation would like to integrate both Alert and Claim. As much as Shadowman Insurance's urgency to provide these capability. They were also concern about the security of the service they provide. No compromise when it comes to the safty of the client data and it's system.
+Shadowman Insurance accident customer helpdesk center collects external reports of the clients and send them back to Shadowman daily. The company wants to enable police and fire departments access to the accident alert center web application. Currently that application is used by the helpdesk from the internal (VPN) network. As much as Shadowman Insurance's urgency to provide these capability, they were also concern about the security of the service they provide. No compromise when it comes to the safty of the client data and it's system.
 
 ### API Security
 
-Shadowman Insurance CSO (Chief Security Officer) requested that all external facing services be compliant with the corporate security policy. They currently have a web application using Red Hat Single Sign On to secure the Accident Alert Center Portal. In this demo we will integrate the backend REST service with the Alert Center portal using an API Gateway secured service instead of the old legacy endpoint.
+Shadowman Insurance CSO (Chief Security Officer) requested that all external facing services be compliant with the corporate security policy. Currently the web application is using Red Hat Single Sign On to secure the Accident Alert Center Portal. In this demo the backend REST service will be integrated with the Alert Center portal using an API Gateway secured service instead of the legacy unsecured endpoint.
 
-### Demo Objectives
+## Demo Objectives
 
 * Disable external access to backend service
 * Configure 3scale service to receive POST methods on the internal backend service endpoint
