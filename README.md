@@ -120,4 +120,4 @@ Follow this instructions to setup a working demo environment.
 
 ### Support & Ownership
 
-Feel free to ask [Hugo Guerrero](hguerrer@redhat.com) if you need some support when there are any questions left or if you need some support.
+Feel free to ask [Hugo Guerrero](https://github.com/hguerrero) if you need some support when there are any questions left or if you need some support.
