@@ -5,8 +5,9 @@
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "gulp serve",
-    "dev": "gulp"
+    "start": "http-server templates/dist --no-color",
+    "build": "gulp build",
+    "dev": "gulp serve"
   },
   "author": "@hguerreroo",
   "license": "MIT",
@@ -27,9 +28,10 @@
     "gulp-uglify": "^3.0.0",
     "gulp-webserver": "^0.9.1",
     "lodash": "^4.17.4",
-    "yn": "^2.0.0"
+    "yn": "^2.0.0",
+    "patternfly": "^3.37.1"
   },
   "dependencies": {
-    "patternfly": "^3.37.1"
+    "http-server": "^0.11.1"
   }
 }
