@@ -1,4 +1,4 @@
- {
+{
     "kind": "Template",
     "apiVersion": "v1",
     "metadata": {
@@ -9,8 +9,8 @@
         }
     },
     "labels": {
-       "app": "accidentalert-ui",
-       "createdBy": "accidentalert-ui-template"
+        "app": "accidentalert-ui",
+        "createdBy": "accidentalert-ui-template"
     },
     "parameters": [
         {
@@ -34,11 +34,11 @@
             "value": "false"
         },
         {
-           "description": "Github trigger secret",
-           "name": "GITHUB_TRIGGER_SECRET",
-           "from": "[a-zA-Z0-9]{8}",
-           "generate": "expression",
-           "required": true
+            "description": "Github trigger secret",
+            "name": "GITHUB_TRIGGER_SECRET",
+            "from": "[a-zA-Z0-9]{8}",
+            "generate": "expression",
+            "required": true
         },
         {
             "description": "Github trigger secret",
@@ -47,207 +47,208 @@
             "generate": "expression",
             "required": true
         }
-     ],
+    ],
     "objects": [
         {
             "kind": "BuildConfig",
             "apiVersion": "v1",
             "metadata": {
-               "name": "accidentalert-ui",
-               "labels": {
-                  "app": "accidentalert-ui"
-               }
+                "name": "accidentalert-ui",
+                "labels": {
+                    "app": "accidentalert-ui"
+                }
             },
             "spec": {
-               "source": {
-                  "type": "Git",
-                  "git": {
-                     "uri": "https://github.com/jbossdemocentral/3scale-security-oidc-demo.git",
-                     "ref": "master"
-                  },
-                  "contextDir":"/projects/accidentalert-ui"
-               },
-               "strategy": {
-                  "type": "Source",
-                  "sourceStrategy": {
-                     "from": {
+                "source": {
+                    "type": "Git",
+                    "git": {
+                        "uri": "https://github.com/jbossdemocentral/3scale-security-oidc-demo.git",
+                        "ref": "master"
+                    },
+                    "contextDir": "/projects/accidentalert-ui"
+                },
+                "strategy": {
+                    "type": "Source",
+                    "sourceStrategy": {
+                        "from": {
+                            "kind": "ImageStreamTag",
+                            "namespace": "openshift",
+                            "name": "nodejs:6"
+                        },
+                        "env": [
+                            {
+                                "name": "SSO_URL",
+                                "value": "${SSO_URL}"
+                            },
+                            {
+                                "name": "BACKEND_URL",
+                                "value": "${BACKEND_URL}"
+                            },
+                            {
+                                "name": "LIVERELOAD",
+                                "value": "${LIVERELOAD}"
+                            }
+                        ]
+                    }
+                },
+                "output": {
+                    "to": {
                         "kind": "ImageStreamTag",
-                        "namespace": "openshift",
-                        "name": "nodejs:6"
-                     }
-                  }
-               },
-               "output": {
-                  "to": {
-                     "kind": "ImageStreamTag",
-                     "name": "accidentalert-ui:latest"
-                  }
-               },
-               "triggers": [
-                  {
-                     "type": "GitHub",
-                     "github": {
-                        "secret": "${GITHUB_TRIGGER_SECRET}"
-                     }
-                  },
-                  {
-                     "type": "Generic",
-                     "generic": {
-                        "secret": "${GENERIC_TRIGGER_SECRET}"
-                     }
-                  },
-                  {
-                     "type": "ImageChange"
-                  },
-                  {
-                     "type": "ConfigChange"
-                  }
-               ]
+                        "name": "accidentalert-ui:latest"
+                    }
+                },
+                "triggers": [
+                    {
+                        "type": "GitHub",
+                        "github": {
+                            "secret": "${GITHUB_TRIGGER_SECRET}"
+                        }
+                    },
+                    {
+                        "type": "Generic",
+                        "generic": {
+                            "secret": "${GENERIC_TRIGGER_SECRET}"
+                        }
+                    },
+                    {
+                        "type": "ImageChange"
+                    },
+                    {
+                        "type": "ConfigChange"
+                    }
+                ]
             }
-         },
-         {
+        },
+        {
             "kind": "ImageStream",
             "apiVersion": "v1",
             "metadata": {
-               "name": "accidentalert-ui",
-               "labels": {
-                  "app": "accidentalert-ui"
-               }
+                "name": "accidentalert-ui",
+                "labels": {
+                    "app": "accidentalert-ui"
+                }
             },
             "spec": {
-               "dockerImageRepository": "",
-               "tags": [
-                  {
-                     "name": "latest"
-                  }
-               ]
+                "dockerImageRepository": "",
+                "tags": [
+                    {
+                        "name": "latest"
+                    }
+                ]
             }
-         },
-         {
+        },
+        {
             "kind": "DeploymentConfig",
             "apiVersion": "v1",
             "metadata": {
-               "name": "accidentalert-ui",
-               "labels": {
-                  "deploymentConfig": "accidentalert-ui",
-                  "app": "accidentalert-ui"
-               }
+                "name": "accidentalert-ui",
+                "labels": {
+                    "deploymentConfig": "accidentalert-ui",
+                    "app": "accidentalert-ui"
+                }
             },
             "spec": {
-               "replicas": 1,
-               "selector": {
-                  "deploymentConfig": "accidentalert-ui"
-               },
-               "strategy": {
-                  "type": "Rolling"
-               },
-               "template": {
-                  "metadata": {
-                     "labels": {
-                        "deploymentConfig": "accidentalert-ui",
-                        "app": "accidentalert-ui"
-                     },
-                     "name": "accidentalert-ui"
-                  },
-                  "spec": {
-                     "containers": [
-                        {
-                           "name": "accidentalert-ui",
-                           "image": "accidentalert-ui",
-                           "imagePullPolicy": "Always",
-                           "env": [
-                              {
-                                 "name": "SSO_URL",
-                                 "value": "${SSO_URL}"
-                              },
-                              {
-                                 "name": "BACKEND_URL",
-                                 "value": "${BACKEND_URL}"
-                              },
-                              {
-                                  "name": "LIVERELOAD",
-                                  "value": "${LIVERELOAD}"
-                              }
-                           ],
-                           "ports": [
-                              {
-                                 "name": "alertui-http",
-                                 "containerPort": 8080,
-                                 "protocol": "TCP"
-                              }
-                           ],
-                           "resources": {},
-                           "terminationMessagePath": "/dev/termination-log",
-                           "securityContext": {}
-                        }
-                     ],
-                     "restartPolicy": "Always",
-                     "dnsPolicy": "ClusterFirst"
-                  }
-               },
-               "triggers": [
-                  {
-                     "type": "ImageChange",
-                     "imageChangeParams": {
-                        "automatic": true,
-                        "containerNames": [
-                           "accidentalert-ui"
+                "replicas": 1,
+                "selector": {
+                    "deploymentConfig": "accidentalert-ui"
+                },
+                "strategy": {
+                    "type": "Rolling"
+                },
+                "template": {
+                    "metadata": {
+                        "labels": {
+                            "deploymentConfig": "accidentalert-ui",
+                            "app": "accidentalert-ui"
+                        },
+                        "name": "accidentalert-ui"
+                    },
+                    "spec": {
+                        "containers": [
+                            {
+                                "name": "accidentalert-ui",
+                                "image": "accidentalert-ui",
+                                "imagePullPolicy": "Always",
+                                "env": [],
+                                "ports": [
+                                    {
+                                        "name": "alertui-http",
+                                        "containerPort": 8080,
+                                        "protocol": "TCP"
+                                    }
+                                ],
+                                "resources": {},
+                                "terminationMessagePath": "/dev/termination-log",
+                                "securityContext": {}
+                            }
                         ],
-                        "from": {
-                           "kind": "ImageStreamTag",
-                           "name": "accidentalert-ui:latest"
+                        "restartPolicy": "Always",
+                        "dnsPolicy": "ClusterFirst"
+                    }
+                },
+                "triggers": [
+                    {
+                        "type": "ImageChange",
+                        "imageChangeParams": {
+                            "automatic": true,
+                            "containerNames": [
+                                "accidentalert-ui"
+                            ],
+                            "from": {
+                                "kind": "ImageStreamTag",
+                                "name": "accidentalert-ui:latest"
+                            }
                         }
-                     }
-                  },
-                  {
-                     "type": "ConfigChange"
-                  }
-               ]
+                    },
+                    {
+                        "type": "ConfigChange"
+                    }
+                ]
             }
-         },
-         {
+        },
+        {
             "kind": "Service",
             "apiVersion": "v1",
             "metadata": {
-               "name": "accidentalert-ui-http",
-               "labels": {
-                  "app": "accidentalert-ui"
-               },
-               "annotations": {
-                  "description": "The web server's http port"
-               }
+                "name": "accidentalert-ui-http",
+                "labels": {
+                    "app": "accidentalert-ui"
+                },
+                "annotations": {
+                    "description": "The web server's http port"
+                }
             },
             "spec": {
-               "ports": [
-                  {
-                     "port": 8080,
-                     "targetPort": 8080
-                  }
-               ],
-               "selector": {
-                  "deploymentConfig": "accidentalert-ui"
-               }
+                "ports": [
+                    {
+                        "port": 8080,
+                        "targetPort": 8080
+                    }
+                ],
+                "selector": {
+                    "deploymentConfig": "accidentalert-ui"
+                }
             }
-         },
-         {
+        },
+        {
             "kind": "Route",
             "apiVersion": "v1",
             "metadata": {
-               "name": "accidentalert-ui-http-route",
-               "labels": {
-                  "app": "accidentalert-ui"
-               },
-               "annotations": {
-                  "description": "Route for application's http service"
-               }
+                "name": "accidentalert-ui-http-route",
+                "labels": {
+                    "app": "accidentalert-ui"
+                },
+                "annotations": {
+                    "description": "Route for application's http service"
+                }
             },
             "spec": {
-               "host": "${APPLICATION_HOSTNAME}",
-               "to": {
-                  "kind": "Service",
-                  "name": "accidentalert-ui-http"
-               }
+                "host": "${APPLICATION_HOSTNAME}",
+                "to": {
+                    "kind": "Service",
+                    "name": "accidentalert-ui-http"
+                }
             }
-         }        
+        }
     ]
- }
+}
