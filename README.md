@@ -14,11 +14,23 @@ _Securing APIs with OpenID Connect using 3scale API Management and Red Hat Singl
 
 **Provisioning Time:** ~15 min
 
-**Guide:** 
+**Guide:**
 
-**Video:** 
+**Video:**
 
 [![API Security with OpenID Connect](docs/images/video-thumbnail.png)](https://vimeo.com/259970326 "API Security with OpenID Connect - Click to Watch!")
+
+**Credentials**
+
+Red Hat Single Sign On
+  
+* Username: **keyadmin**
+* Password: **keypassword**
+
+3scale API Management
+
+* Username: **admin**
+* Password: **password**
 
 **Github Repo:** http://github.com/jbossdemocentral/3scale-security-oidc-demo
 
