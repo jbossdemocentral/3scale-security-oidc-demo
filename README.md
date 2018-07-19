@@ -32,6 +32,11 @@ Red Hat Single Sign On
 * Username: **admin**
 * Password: **password**
 
+Web Application
+
+* Username: **statepolice**
+* Password: **password**
+
 **Github Repo:** http://github.com/jbossdemocentral/3scale-security-oidc-demo
 
 ## Background
