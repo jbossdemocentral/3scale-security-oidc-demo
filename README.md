@@ -14,7 +14,7 @@ _Securing APIs with OpenID Connect using 3scale API Management and Red Hat Singl
 
 **Provisioning Time:** ~15 min
 
-**Guide:**
+**Slides:** https://docs.google.com/presentation/d/1Dy74IwGDS-vP65Pk03x9fj11HRPvTKe-PgWcBCMusyY/edit?usp=sharing
 
 **Video:**
 
