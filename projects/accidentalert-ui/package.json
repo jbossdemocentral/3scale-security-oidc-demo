@@ -29,8 +29,8 @@
     "gulp-webserver": "^0.9.1",
     "lodash": "^4.17.4",
     "yn": "^2.0.0",
-    "patternfly": "^3.37.1"
-    "jquery": "^3.3.1"
+    "patternfly": "^3.37.1",
+    "jquery": "^3.3.1",
     "bootstrap-datepicker": "^1.8.0"
   },
   "dependencies": {
