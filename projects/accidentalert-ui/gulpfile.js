@@ -113,13 +113,16 @@ gulp.task("copy:libs", ['clean'], function () {
     var assets = {
         css: [
             paths.node_modules + "patternfly/dist/css/**",
-            paths.node_modules + "patternfly/node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css"
+//            paths.node_modules + "patternfly/node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css"
+            paths.node_modules + "bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css"
         ],
         js: [
             paths.node_modules + "patternfly/dist/js/**",
             paths.node_modules + "patternfly/node_modules/jquery/dist/**",
-            paths.node_modules + "patternfly/node_modules/bootstrap/dist/js/**",
-            paths.node_modules + "patternfly/node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"
+//            paths.node_modules + "patternfly/node_modules/bootstrap/dist/js/**",
+            paths.node_modules + "bootstrap/dist/js/**",
+//            paths.node_modules + "patternfly/node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"
+            paths.node_modules + "bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"
         ],
         fonts: [
             paths.node_modules + "patternfly/dist/fonts/**"
