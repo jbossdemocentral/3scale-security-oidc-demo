@@ -1,0 +1,27 @@
+[
+    {
+        "name": "cors",
+        "version": "builtin",
+        "configuration": {
+            "allow_headers": [
+                "Authorization",
+                "authorization",
+                "content-type"
+            ],
+            "allow_credentials": true,
+            "allow_methods": [
+                "GET",
+                "OPTIONS",
+                "PUT"
+            ],
+            "allow_origin": "*"
+        },
+        "enabled": true
+    },
+    {
+        "name": "apicast",
+        "version": "builtin",
+        "configuration": {},
+        "enabled": true
+    }
+]
