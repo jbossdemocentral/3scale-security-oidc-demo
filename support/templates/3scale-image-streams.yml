@@ -1,0 +1,339 @@
+apiVersion: v1
+kind: ImageStreamList
+metadata:
+  annotations: {}
+  name: 3scale-api-management-image-streams
+items:
+- apiVersion: image.openshift.io/v1
+  kind: ImageStream
+  metadata:
+    annotations:
+      openshift.io/display-name: AMP backend
+    creationTimestamp: null
+    labels:
+      app: 3scale-api-management
+      threescale_component: backend
+    name: amp-backend
+  spec:
+    lookupPolicy:
+      local: false
+    tags:
+    - annotations:
+        openshift.io/display-name: amp-backend (latest)
+      from:
+        kind: ImageStreamTag
+        name: 2.6
+      generation: null
+      importPolicy: {}
+      name: latest
+      referencePolicy:
+        type: ""
+    - annotations:
+        openshift.io/display-name: amp-backend 2.6
+      from:
+        kind: DockerImage
+        name: registry.redhat.io/3scale-amp26/backend
+      generation: null
+      importPolicy:
+        insecure: false
+      name: 2.6
+      referencePolicy:
+        type: ""
+  status:
+    dockerImageRepository: ""
+- apiVersion: image.openshift.io/v1
+  kind: ImageStream
+  metadata:
+    annotations:
+      openshift.io/display-name: AMP Zync
+    creationTimestamp: null
+    labels:
+      app: 3scale-api-management
+      threescale_component: zync
+    name: amp-zync
+  spec:
+    lookupPolicy:
+      local: false
+    tags:
+    - annotations:
+        openshift.io/display-name: AMP Zync (latest)
+      from:
+        kind: ImageStreamTag
+        name: 2.6
+      generation: null
+      importPolicy: {}
+      name: latest
+      referencePolicy:
+        type: ""
+    - annotations:
+        openshift.io/display-name: AMP Zync 2.6
+      from:
+        kind: DockerImage
+        name: registry.redhat.io/3scale-amp26/zync
+      generation: null
+      importPolicy:
+        insecure: false
+      name: 2.6
+      referencePolicy:
+        type: ""
+  status:
+    dockerImageRepository: ""
+- apiVersion: image.openshift.io/v1
+  kind: ImageStream
+  metadata:
+    annotations:
+      openshift.io/display-name: AMP APIcast
+    creationTimestamp: null
+    labels:
+      app: 3scale-api-management
+      threescale_component: apicast
+    name: amp-apicast
+  spec:
+    lookupPolicy:
+      local: false
+    tags:
+    - annotations:
+        openshift.io/display-name: AMP APIcast (latest)
+      from:
+        kind: ImageStreamTag
+        name: 2.6
+      generation: null
+      importPolicy: {}
+      name: latest
+      referencePolicy:
+        type: ""
+    - annotations:
+        openshift.io/display-name: AMP APIcast 2.6
+      from:
+        kind: DockerImage
+        name: registry.redhat.io/3scale-amp26/apicast-gateway
+      generation: null
+      importPolicy:
+        insecure: false
+      name: 2.6
+      referencePolicy:
+        type: ""
+  status:
+    dockerImageRepository: ""
+- apiVersion: image.openshift.io/v1
+  kind: ImageStream
+  metadata:
+    annotations:
+      openshift.io/display-name: AMP System
+    creationTimestamp: null
+    labels:
+      app: 3scale-api-management
+      threescale_component: system
+    name: amp-system
+  spec:
+    lookupPolicy:
+      local: false
+    tags:
+    - annotations:
+        openshift.io/display-name: AMP System (latest)
+      from:
+        kind: ImageStreamTag
+        name: 2.6
+      generation: null
+      importPolicy: {}
+      name: latest
+      referencePolicy:
+        type: ""
+    - annotations:
+        openshift.io/display-name: AMP system 2.6
+      from:
+        kind: DockerImage
+        name: registry.redhat.io/3scale-amp26/system
+      generation: null
+      importPolicy:
+        insecure: false
+      name: 2.6
+      referencePolicy:
+        type: ""
+  status:
+    dockerImageRepository: ""
+- apiVersion: image.openshift.io/v1
+  kind: ImageStream
+  metadata:
+    annotations:
+      openshift.io/display-name: Zync database PostgreSQL
+    creationTimestamp: null
+    labels:
+      app: 3scale-api-management
+      threescale_component: system
+    name: zync-database-postgresql
+  spec:
+    lookupPolicy:
+      local: false
+    tags:
+    - annotations:
+        openshift.io/display-name: Zync PostgreSQL (latest)
+      from:
+        kind: ImageStreamTag
+        name: 2.6
+      generation: null
+      importPolicy: {}
+      name: latest
+      referencePolicy:
+        type: ""
+    - annotations:
+        openshift.io/display-name: Zync 2.6 PostgreSQL
+      from:
+        kind: DockerImage
+        name: registry.redhat.io/rhscl/postgresql-10-rhel7
+      generation: null
+      importPolicy:
+        insecure: false
+      name: 2.6
+      referencePolicy:
+        type: ""
+  status:
+    dockerImageRepository: ""
+- apiVersion: image.openshift.io/v1
+  kind: ImageStream
+  metadata:
+    annotations:
+      openshift.io/display-name: Backend Redis
+    creationTimestamp: null
+    labels:
+      app: 3scale-api-management
+      threescale_component: backend
+    name: backend-redis
+  spec:
+    lookupPolicy:
+      local: false
+    tags:
+    - annotations:
+        openshift.io/display-name: Backend Redis (latest)
+      from:
+        kind: ImageStreamTag
+        name: 2.6
+      generation: null
+      importPolicy: {}
+      name: latest
+      referencePolicy:
+        type: ""
+    - annotations:
+        openshift.io/display-name: Backend 2.6 Redis
+      from:
+        kind: DockerImage
+        name: registry.redhat.io/rhscl/redis-32-rhel7:3.2
+      generation: null
+      importPolicy:
+        insecure: false
+      name: 2.6
+      referencePolicy:
+        type: ""
+  status:
+    dockerImageRepository: ""
+- apiVersion: image.openshift.io/v1
+  kind: ImageStream
+  metadata:
+    annotations:
+      openshift.io/display-name: System Redis
+    creationTimestamp: null
+    labels:
+      app: 3scale-api-management
+      threescale_component: system
+    name: system-redis
+  spec:
+    lookupPolicy:
+      local: false
+    tags:
+    - annotations:
+        openshift.io/display-name: System Redis (latest)
+      from:
+        kind: ImageStreamTag
+        name: 2.6
+      generation: null
+      importPolicy: {}
+      name: latest
+      referencePolicy:
+        type: ""
+    - annotations:
+        openshift.io/display-name: System 2.6 Redis
+      from:
+        kind: DockerImage
+        name: registry.redhat.io/rhscl/redis-32-rhel7:3.2
+      generation: null
+      importPolicy:
+        insecure: false
+      name: 2.6
+      referencePolicy:
+        type: ""
+  status:
+    dockerImageRepository: ""
+- apiVersion: image.openshift.io/v1
+  kind: ImageStream
+  metadata:
+    annotations:
+      openshift.io/display-name: System Memcached
+    creationTimestamp: null
+    labels:
+      app: 3scale-api-management
+      threescale_component: system
+    name: system-memcached
+  spec:
+    lookupPolicy:
+      local: false
+    tags:
+    - annotations:
+        openshift.io/display-name: System Memcached (latest)
+      from:
+        kind: ImageStreamTag
+        name: 2.6
+      generation: null
+      importPolicy: {}
+      name: latest
+      referencePolicy:
+        type: ""
+    - annotations:
+        openshift.io/display-name: System 2.6 Memcached
+      from:
+        kind: DockerImage
+        name: registry.redhat.io/3scale-amp20/memcached
+      generation: null
+      importPolicy:
+        insecure: false
+      name: 2.6
+      referencePolicy:
+        type: ""
+  status:
+    dockerImageRepository: ""
+- apiVersion: image.openshift.io/v1
+  kind: ImageStream
+  metadata:
+    annotations:
+      openshift.io/display-name: System MySQL
+    creationTimestamp: null
+    labels:
+      app: 3scale-api-management
+      threescale_component: system
+    name: system-mysql
+  spec:
+    lookupPolicy:
+      local: false
+    tags:
+    - annotations:
+        openshift.io/display-name: System MySQL (latest)
+      from:
+        kind: ImageStreamTag
+        name: 2.6
+      generation: null
+      importPolicy: {}
+      name: latest
+      referencePolicy:
+        type: ""
+    - annotations:
+        openshift.io/display-name: System 2.6 MySQL
+      from:
+        kind: DockerImage
+        name: registry.redhat.io/rhscl/mysql-57-rhel7:5.7
+      generation: null
+      importPolicy:
+        insecure: false
+      name: 2.6
+      referencePolicy:
+        type: ""
+  status:
+    dockerImageRepository: ""
