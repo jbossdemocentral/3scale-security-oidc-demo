@@ -4,7 +4,7 @@ metadata:
   annotations: {}
   name: 3scale-api-management-image-streams
 items:
-- apiVersion: image.openshift.io/v1
+- apiVersion: v1
   kind: ImageStream
   metadata:
     annotations:
@@ -41,7 +41,7 @@ items:
         type: ""
   status:
     dockerImageRepository: ""
-- apiVersion: image.openshift.io/v1
+- apiVersion: v1
   kind: ImageStream
   metadata:
     annotations:
@@ -78,7 +78,7 @@ items:
         type: ""
   status:
     dockerImageRepository: ""
-- apiVersion: image.openshift.io/v1
+- apiVersion: v1
   kind: ImageStream
   metadata:
     annotations:
@@ -115,7 +115,7 @@ items:
         type: ""
   status:
     dockerImageRepository: ""
-- apiVersion: image.openshift.io/v1
+- apiVersion: v1
   kind: ImageStream
   metadata:
     annotations:
@@ -152,7 +152,7 @@ items:
         type: ""
   status:
     dockerImageRepository: ""
-- apiVersion: image.openshift.io/v1
+- apiVersion: v1
   kind: ImageStream
   metadata:
     annotations:
@@ -189,7 +189,7 @@ items:
         type: ""
   status:
     dockerImageRepository: ""
-- apiVersion: image.openshift.io/v1
+- apiVersion: v1
   kind: ImageStream
   metadata:
     annotations:
@@ -226,7 +226,7 @@ items:
         type: ""
   status:
     dockerImageRepository: ""
-- apiVersion: image.openshift.io/v1
+- apiVersion: v1
   kind: ImageStream
   metadata:
     annotations:
@@ -263,7 +263,7 @@ items:
         type: ""
   status:
     dockerImageRepository: ""
-- apiVersion: image.openshift.io/v1
+- apiVersion: v1
   kind: ImageStream
   metadata:
     annotations:
@@ -300,7 +300,7 @@ items:
         type: ""
   status:
     dockerImageRepository: ""
-- apiVersion: image.openshift.io/v1
+- apiVersion: v1
   kind: ImageStream
   metadata:
     annotations:
