@@ -22,7 +22,7 @@ items:
         openshift.io/display-name: amp-backend (latest)
       from:
         kind: ImageStreamTag
-        name: 2.6
+        name: "2.6"
       generation: null
       importPolicy: {}
       name: latest
@@ -36,11 +36,9 @@ items:
       generation: null
       importPolicy:
         insecure: false
-      name: 2.6
+      name: "2.6"
       referencePolicy:
         type: ""
-  status:
-    dockerImageRepository: ""
 - apiVersion: v1
   kind: ImageStream
   metadata:
@@ -59,7 +57,7 @@ items:
         openshift.io/display-name: AMP Zync (latest)
       from:
         kind: ImageStreamTag
-        name: 2.6
+        name: "2.6"
       generation: null
       importPolicy: {}
       name: latest
@@ -73,11 +71,9 @@ items:
       generation: null
       importPolicy:
         insecure: false
-      name: 2.6
+      name: "2.6"
       referencePolicy:
         type: ""
-  status:
-    dockerImageRepository: ""
 - apiVersion: v1
   kind: ImageStream
   metadata:
@@ -96,7 +92,7 @@ items:
         openshift.io/display-name: AMP APIcast (latest)
       from:
         kind: ImageStreamTag
-        name: 2.6
+        name: "2.6"
       generation: null
       importPolicy: {}
       name: latest
@@ -110,11 +106,9 @@ items:
       generation: null
       importPolicy:
         insecure: false
-      name: 2.6
+      name: "2.6"
       referencePolicy:
         type: ""
-  status:
-    dockerImageRepository: ""
 - apiVersion: v1
   kind: ImageStream
   metadata:
@@ -133,7 +127,7 @@ items:
         openshift.io/display-name: AMP System (latest)
       from:
         kind: ImageStreamTag
-        name: 2.6
+        name: "2.6"
       generation: null
       importPolicy: {}
       name: latest
@@ -147,11 +141,9 @@ items:
       generation: null
       importPolicy:
         insecure: false
-      name: 2.6
+      name: "2.6"
       referencePolicy:
         type: ""
-  status:
-    dockerImageRepository: ""
 - apiVersion: v1
   kind: ImageStream
   metadata:
@@ -170,7 +162,7 @@ items:
         openshift.io/display-name: Zync PostgreSQL (latest)
       from:
         kind: ImageStreamTag
-        name: 2.6
+        name: "2.6"
       generation: null
       importPolicy: {}
       name: latest
@@ -184,11 +176,9 @@ items:
       generation: null
       importPolicy:
         insecure: false
-      name: 2.6
+      name: "2.6"
       referencePolicy:
         type: ""
-  status:
-    dockerImageRepository: ""
 - apiVersion: v1
   kind: ImageStream
   metadata:
@@ -207,7 +197,7 @@ items:
         openshift.io/display-name: Backend Redis (latest)
       from:
         kind: ImageStreamTag
-        name: 2.6
+        name: "2.6"
       generation: null
       importPolicy: {}
       name: latest
@@ -221,11 +211,9 @@ items:
       generation: null
       importPolicy:
         insecure: false
-      name: 2.6
+      name: "2.6"
       referencePolicy:
         type: ""
-  status:
-    dockerImageRepository: ""
 - apiVersion: v1
   kind: ImageStream
   metadata:
@@ -244,7 +232,7 @@ items:
         openshift.io/display-name: System Redis (latest)
       from:
         kind: ImageStreamTag
-        name: 2.6
+        name: "2.6"
       generation: null
       importPolicy: {}
       name: latest
@@ -258,11 +246,9 @@ items:
       generation: null
       importPolicy:
         insecure: false
-      name: 2.6
+      name: "2.6"
       referencePolicy:
         type: ""
-  status:
-    dockerImageRepository: ""
 - apiVersion: v1
   kind: ImageStream
   metadata:
@@ -281,7 +267,7 @@ items:
         openshift.io/display-name: System Memcached (latest)
       from:
         kind: ImageStreamTag
-        name: 2.6
+        name: "2.6"
       generation: null
       importPolicy: {}
       name: latest
@@ -295,11 +281,9 @@ items:
       generation: null
       importPolicy:
         insecure: false
-      name: 2.6
+      name: "2.6"
       referencePolicy:
         type: ""
-  status:
-    dockerImageRepository: ""
 - apiVersion: v1
   kind: ImageStream
   metadata:
@@ -318,7 +302,7 @@ items:
         openshift.io/display-name: System MySQL (latest)
       from:
         kind: ImageStreamTag
-        name: 2.6
+        name: "2.6"
       generation: null
       importPolicy: {}
       name: latest
@@ -332,8 +316,6 @@ items:
       generation: null
       importPolicy:
         insecure: false
-      name: 2.6
+      name: "2.6"
       referencePolicy:
         type: ""
-  status:
-    dockerImageRepository: ""
