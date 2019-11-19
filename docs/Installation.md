@@ -4,9 +4,8 @@ Follow this instructions to setup a working demo environment.
 
 ## Prerequisites
 
-* OpenShift Container Platform 3.6
+* OpenShift Container Platform 3.11
 * User with cluster-admin role
-* OpenShift router with [support for wildcard routes](https://docs.openshift.com/container-platform/3.6/install_config/router/default_haproxy_router.html#using-wildcard-routes) 
 
 ## Deployment
 
@@ -46,7 +45,7 @@ Follow this instructions to setup a working demo environment.
 
     ```bash
     $ oc new-project threescale
-    $ oc new-app -f https://raw.githubusercontent.com/3scale/3scale-amp-openshift-templates/2.1.0-GA/amp/amp.yml --param WILDCARD_DOMAIN=amp.apps.d2a7.openshift.opentlc.com --param ADMIN_PASSWORD=password --param WILDCARD_POLICY=Subdomain
+    $ oc new-app -f https://raw.githubusercontent.com/3scale/3scale-amp-openshift-templates/2.1.0-GA/amp/amp.yml --param WILDCARD_DOMAIN=amp.apps.d2a7.openshift.opentlc.com --param ADMIN_PASSWORD=password
     ```
 
 ## Config
