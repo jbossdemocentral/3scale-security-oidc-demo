@@ -22,21 +22,21 @@ items:
         openshift.io/display-name: amp-backend (latest)
       from:
         kind: ImageStreamTag
-        name: 2.8.0.GA
+        name: 2.9.0.GA
       generation: null
       importPolicy: {}
       name: latest
       referencePolicy:
         type: ""
     - annotations:
-        openshift.io/display-name: amp-backend 2.8.0.GA
+        openshift.io/display-name: amp-backend 2.9.0.GA
       from:
         kind: DockerImage
-        name: registry.redhat.io/3scale-amp2/backend-rhel7:3scale2.8
+        name: registry.redhat.io/3scale-amp2/backend-rhel7:3scale2.9
       generation: null
       importPolicy:
         insecure: false
-      name: 2.8.0.GA
+      name: 2.9.0.GA
       referencePolicy:
         type: ""
 - apiVersion: image.openshift.io/v1
@@ -57,21 +57,21 @@ items:
         openshift.io/display-name: AMP Zync (latest)
       from:
         kind: ImageStreamTag
-        name: 2.8.0.GA
+        name: 2.9.0.GA
       generation: null
       importPolicy: {}
       name: latest
       referencePolicy:
         type: ""
     - annotations:
-        openshift.io/display-name: AMP Zync 2.8.0.GA
+        openshift.io/display-name: AMP Zync 2.9.0.GA
       from:
         kind: DockerImage
-        name: registry.redhat.io/3scale-amp2/zync-rhel7:3scale2.8
+        name: registry.redhat.io/3scale-amp2/zync-rhel7:3scale2.9
       generation: null
       importPolicy:
         insecure: false
-      name: 2.8.0.GA
+      name: 2.9.0.GA
       referencePolicy:
         type: ""
 - apiVersion: image.openshift.io/v1
@@ -92,21 +92,21 @@ items:
         openshift.io/display-name: AMP APIcast (latest)
       from:
         kind: ImageStreamTag
-        name: 2.8.0.GA
+        name: 2.9.0.GA
       generation: null
       importPolicy: {}
       name: latest
       referencePolicy:
         type: ""
     - annotations:
-        openshift.io/display-name: AMP APIcast 2.8.0.GA
+        openshift.io/display-name: AMP APIcast 2.9.0.GA
       from:
         kind: DockerImage
-        name: registry.redhat.io/3scale-amp2/apicast-gateway-rhel8:3scale2.8
+        name: registry.redhat.io/3scale-amp2/apicast-gateway-rhel8:3scale2.9
       generation: null
       importPolicy:
         insecure: false
-      name: 2.8.0.GA
+      name: 2.9.0.GA
       referencePolicy:
         type: ""
 - apiVersion: image.openshift.io/v1
@@ -127,21 +127,21 @@ items:
         openshift.io/display-name: AMP System (latest)
       from:
         kind: ImageStreamTag
-        name: 2.8.0.GA
+        name: 2.9.0.GA
       generation: null
       importPolicy: {}
       name: latest
       referencePolicy:
         type: ""
     - annotations:
-        openshift.io/display-name: AMP system 2.8.0.GA
+        openshift.io/display-name: AMP system 2.9.0.GA
       from:
         kind: DockerImage
-        name: registry.redhat.io/3scale-amp2/system-rhel7:3scale2.8
+        name: registry.redhat.io/3scale-amp2/system-rhel7:3scale2.9
       generation: null
       importPolicy:
         insecure: false
-      name: 2.8.0.GA
+      name: 2.9.0.GA
       referencePolicy:
         type: ""
 - apiVersion: image.openshift.io/v1
@@ -162,21 +162,21 @@ items:
         openshift.io/display-name: Zync PostgreSQL (latest)
       from:
         kind: ImageStreamTag
-        name: 2.8.0.GA
+        name: 2.9.0.GA
       generation: null
       importPolicy: {}
       name: latest
       referencePolicy:
         type: ""
     - annotations:
-        openshift.io/display-name: Zync 2.8.0.GA PostgreSQL
+        openshift.io/display-name: Zync 2.9.0.GA PostgreSQL
       from:
         kind: DockerImage
         name: registry.redhat.io/rhscl/postgresql-10-rhel7
       generation: null
       importPolicy:
         insecure: false
-      name: 2.8.0.GA
+      name: 2.9.0.GA
       referencePolicy:
         type: ""
 - apiVersion: image.openshift.io/v1
@@ -197,21 +197,21 @@ items:
         openshift.io/display-name: System Memcached (latest)
       from:
         kind: ImageStreamTag
-        name: 2.8.0.GA
+        name: 2.9.0.GA
       generation: null
       importPolicy: {}
       name: latest
       referencePolicy:
         type: ""
     - annotations:
-        openshift.io/display-name: System 2.8.0.GA Memcached
+        openshift.io/display-name: System 2.9.0.GA Memcached
       from:
         kind: DockerImage
-        name: registry.redhat.io/3scale-amp2/memcached-rhel7:3scale2.8
+        name: registry.redhat.io/3scale-amp2/memcached-rhel7:3scale2.9
       generation: null
       importPolicy:
         insecure: false
-      name: 2.8.0.GA
+      name: 2.9.0.GA
       referencePolicy:
         type: ""
 - apiVersion: image.openshift.io/v1
@@ -232,21 +232,21 @@ items:
         openshift.io/display-name: System MySQL (latest)
       from:
         kind: ImageStreamTag
-        name: 2.8.0.GA
+        name: 2.9.0.GA
       generation: null
       importPolicy: {}
       name: latest
       referencePolicy:
         type: ""
     - annotations:
-        openshift.io/display-name: System 2.8.0.GA MySQL
+        openshift.io/display-name: System 2.9.0.GA MySQL
       from:
         kind: DockerImage
         name: registry.redhat.io/rhscl/mysql-57-rhel7:5.7
       generation: null
       importPolicy:
         insecure: false
-      name: 2.8.0.GA
+      name: 2.9.0.GA
       referencePolicy:
         type: ""
 - apiVersion: image.openshift.io/v1
@@ -267,21 +267,21 @@ items:
         openshift.io/display-name: Backend Redis (latest)
       from:
         kind: ImageStreamTag
-        name: 2.8.0.GA
+        name: 2.9.0.GA
       generation: null
       importPolicy: {}
       name: latest
       referencePolicy:
         type: ""
     - annotations:
-        openshift.io/display-name: Backend 2.8.0.GA Redis
+        openshift.io/display-name: Backend 2.9.0.GA Redis
       from:
         kind: DockerImage
         name: registry.redhat.io/rhscl/redis-32-rhel7:3.2
       generation: null
       importPolicy:
         insecure: false
-      name: 2.8.0.GA
+      name: 2.9.0.GA
       referencePolicy:
         type: ""
 - apiVersion: image.openshift.io/v1
@@ -302,20 +302,20 @@ items:
         openshift.io/display-name: System Redis (latest)
       from:
         kind: ImageStreamTag
-        name: 2.8.0.GA
+        name: 2.9.0.GA
       generation: null
       importPolicy: {}
       name: latest
       referencePolicy:
         type: ""
     - annotations:
-        openshift.io/display-name: System 2.8.0.GA Redis
+        openshift.io/display-name: System 2.9.0.GA Redis
       from:
         kind: DockerImage
         name: registry.redhat.io/rhscl/redis-32-rhel7:3.2
       generation: null
       importPolicy:
         insecure: false
-      name: 2.8.0.GA
+      name: 2.9.0.GA
       referencePolicy:
         type: ""
