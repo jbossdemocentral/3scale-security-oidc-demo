@@ -1,0 +1,25 @@
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: credential-sso
+  namespace: sso
+  labels:
+    app: keycloak
+    keycloak: sso
+data:
+  ADMIN_PASSWORD: a2V5cGFzc3dvcmQ=
+  ADMIN_USERNAME: a2V5YWRtaW4=
+type: Opaque
+---
+apiVersion: keycloak.org/v1alpha1
+kind: Keycloak
+metadata:
+  name: sso
+  labels:
+    app: sso
+  namespace: sso
+spec:
+  externalAccess:
+    enabled: true
+  instances: 1
