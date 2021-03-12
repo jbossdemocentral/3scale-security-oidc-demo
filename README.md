@@ -24,8 +24,7 @@ _Securing APIs with OpenID Connect using 3scale API Management and Red Hat Singl
 
 Red Hat Single Sign On
   
-* Username: **keyadmin**
-* Password: **keypassword**
+* Check the **credential-sso** Kubernetes Secret in the SSO namespace for admin username and password
 
 3scale API Management
 
