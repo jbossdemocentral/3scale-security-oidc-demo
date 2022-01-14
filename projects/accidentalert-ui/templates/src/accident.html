@@ -362,6 +362,7 @@
 			});
 
 			$('#postReport').click(function () {
+				console.log('Start of Function');
 				keycloak.updateToken(30).success(function () {
 					$.ajax({
 						type: "post",
@@ -401,7 +402,8 @@
 					$('#accident-app').show();
 				}
 				else {
-					alert('User cannot file reports');
+					alert('User really cannot file reports');
+					console.log('User unable to file reports');
 				}
 				$('#loginUrl').hide();
 			}
