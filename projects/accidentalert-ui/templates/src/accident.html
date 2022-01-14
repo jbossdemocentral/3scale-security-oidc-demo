@@ -412,7 +412,7 @@
 		alert('1');
 		keycloak.init({ onLoad: 'check-sso' }).success(function (authenticated) {
 			console.log(authenticated ? 'authenticated' : 'not authenticated');
-			alert('2');
+			alert('Token' + keycloak.token);
 			if (authenticated) {
 				if (keycloak.hasRealmRole('policedept')) {
 					alert('3');
