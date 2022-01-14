@@ -342,13 +342,11 @@
 			todayBtn: "linked",
 			todayHighlight: true
 		});
-		//$('#success-notification').hide();
-		alert
-		console.log('Before function');
+		$('#success-notification').hide();
 		(function ($) {
 			// countFld is the id of the field where you want the 'remaining chars. count' number
 			// to be displayed.
-			alert('6');
+					
 			$('#description').countRemainingChars({
 				countFld: 'charRemainingCntFld',
 				charsMaxLimit: 250,
@@ -367,7 +365,13 @@
 			$('#postReport').click(function () {
 				alert('7');
 				console.log('Start of Function');
+				
+				var urlhttp = 'http://localhost:8080/accidentcenter/report';
+				var reqdata = JSON.stringify($('#report').serializeObject());
 				alert('Token: ' + keycloak.token);
+				alert('URL: ' + urlhttp);
+				alert('reqdata: ' + reqdata);
+				
 				keycloak.updateToken(30).success(function () {
 					$.ajax({
 						type: "post",
@@ -375,9 +379,9 @@
 						headers: {
 							'Authorization': 'Bearer ' + keycloak.token
 						},
-						url: "http://localhost:8080/accidentcenter/report",
+						url: urlhttp,
 						dataType: "json",
-						data: JSON.stringify($('#report').serializeObject()),
+						data: reqdata,
 						success: function (data) {
 							alert('Success');
 							$('#success-notification').show();
