@@ -386,10 +386,11 @@
 							alert('Success');
 							$('#success-notification').show();
 						},
-						error: function (req, error) {
+						error: function (req, error,errorThrown) {
 							alert('8');
-							alert('Error: ' + eval(error));
+							alert('Error: ' + req.responseText);
 							alert('Req: ' + req.status);
+							alert('ErrowThrown: ' + errorThrown);
 							
 							$('#success-notification').show();
 						}
