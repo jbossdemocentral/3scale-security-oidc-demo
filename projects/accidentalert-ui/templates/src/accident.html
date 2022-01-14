@@ -367,9 +367,9 @@
 							
 				var urlhttp = 'http://localhost:8080/accidentcenter/report';
 				var reqdata = JSON.stringify($('#report').serializeObject());
-				// alert('Token: ' + keycloak.token);
-				// alert('URL: ' + urlhttp);
-				// alert('reqdata: ' + reqdata);
+				alert('Token: ' + keycloak.token);
+				alert('URL: ' + urlhttp);
+				alert('reqdata: ' + reqdata);
 				
 				keycloak.updateToken(30).success(function () {
 					$.ajax({
