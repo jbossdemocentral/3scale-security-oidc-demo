@@ -343,6 +343,7 @@
 			todayHighlight: true
 		});
 		$('#success-notification').hide();
+		console.log('Before function');
 		(function ($) {
 			// countFld is the id of the field where you want the 'remaining chars. count' number
 			// to be displayed.
@@ -374,15 +375,18 @@
 						dataType: "json",
 						data: JSON.stringify($('#report').serializeObject()),
 						success: function (data) {
+							console.log('Success');
 							$('#success-notification').show();
 						},
 						error: function (req, error) {
+							console.log('Error');
 							console.log(error);
 						}
 					});
 				}).error(function () {
 					console.log('Failed to refresh token');
 				});
+				console.log('End of Function');
 			});
 		})(jQuery);
 	</script>
