@@ -363,14 +363,13 @@
 			});
 
 			$('#postReport').click(function () {
-				alert('7');
-				console.log('Start of Function');
-				
+				// alert('Customer has clicked on Submit Report');
+							
 				var urlhttp = 'http://localhost:8080/accidentcenter/report';
 				var reqdata = JSON.stringify($('#report').serializeObject());
-				alert('Token: ' + keycloak.token);
-				alert('URL: ' + urlhttp);
-				alert('reqdata: ' + reqdata);
+				// alert('Token: ' + keycloak.token);
+				// alert('URL: ' + urlhttp);
+				// alert('reqdata: ' + reqdata);
 				
 				keycloak.updateToken(30).success(function () {
 					$.ajax({
@@ -383,23 +382,18 @@
 						dataType: "json",
 						data: reqdata,
 						success: function (data) {
-							alert('Success');
+							// alert('Success');
 							$('#success-notification').show();
 						},
 						error: function (req, error,errorThrown) {
-							alert('8');
 							alert('Error: ' + req.responseText);
 							alert('Req: ' + req.status);
 							alert('ErrowThrown: ' + errorThrown);
-							
-							$('#success-notification').show();
 						}
 					});
 				}).error(function () {
-					alert('10');
-					console.log('Failed to refresh token');
+					alert('Failed to refresh token');
 				});
-				alert('11');
 				console.log('End of Function');
 			});
 		})(jQuery);
@@ -413,18 +407,16 @@
 			clientId: 'accidentalert-ui'
 		};
 		var keycloak = Keycloak(keyOptions);
-		alert('1');
 		keycloak.init({ onLoad: 'check-sso' }).success(function (authenticated) {
 			console.log(authenticated ? 'authenticated' : 'not authenticated');
 			alert('Token' + keycloak.token);
 			if (authenticated) {
 				if (keycloak.hasRealmRole('policedept')) {
-					alert('3');
 					$('#accident-app').show();
 				}
 				else {
 					alert('User really cannot file reports');
-					console.log('User unable to file reports');
+					//console.log('User unable to file reports');
 				}
 				$('#loginUrl').hide();
 			}
@@ -433,14 +425,12 @@
 				$('#loginUrl').show();
 			}
 		}).error(function () {
-			alert('4');
 			console.log('failed to initialize: ' + data);
 		});
 		var opts = {
 			redirectUri: window.location.origin + "/accident.html"
 		};
 		var loginUrl = keycloak.createLoginUrl(opts);
-		alert('5');
 		document.getElementById('loginUrl').href = loginUrl;
 	</script>
 
