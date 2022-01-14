@@ -379,16 +379,15 @@
 						dataType: "json",
 						data: JSON.stringify($('#report').serializeObject()),
 						success: function (data) {
-							console.log('Success');
-							alert('9');
+							alert('Success');
 							$('#success-notification').show();
 						},
 						error: function (req, error) {
 							alert('8');
-							alert('Error: ' + error);
-							alert('Req: ' + req);
-							console.log('Error');
-							console.log(error);
+							alert('Error: ' + eval(error);
+							alert('Req: ' + req.status);
+							
+							$('#success-notification').show();
 						}
 					});
 				}).error(function () {
