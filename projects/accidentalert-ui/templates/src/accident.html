@@ -409,7 +409,7 @@
 		var keycloak = Keycloak(keyOptions);
 		keycloak.init({ onLoad: 'check-sso' }).success(function (authenticated) {
 			console.log(authenticated ? 'authenticated' : 'not authenticated');
-			alert('Token' + keycloak.token);
+			// alert('Token' + keycloak.token);
 			if (authenticated) {
 				if (keycloak.hasRealmRole('policedept')) {
 					$('#accident-app').show();
