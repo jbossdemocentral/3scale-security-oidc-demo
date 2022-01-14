@@ -343,10 +343,12 @@
 			todayHighlight: true
 		});
 		//$('#success-notification').hide();
+		alert
 		console.log('Before function');
 		(function ($) {
 			// countFld is the id of the field where you want the 'remaining chars. count' number
 			// to be displayed.
+			alert('6');
 			$('#description').countRemainingChars({
 				countFld: 'charRemainingCntFld',
 				charsMaxLimit: 250,
@@ -363,6 +365,7 @@
 			});
 
 			$('#postReport').click(function () {
+				alert('7');
 				console.log('Start of Function');
 				keycloak.updateToken(30).success(function () {
 					$.ajax({
@@ -376,16 +379,20 @@
 						data: JSON.stringify($('#report').serializeObject()),
 						success: function (data) {
 							console.log('Success');
+							alert('9');
 							$('#success-notification').show();
 						},
 						error: function (req, error) {
+							alert('8');
 							console.log('Error');
 							console.log(error);
 						}
 					});
 				}).error(function () {
+					alert('10');
 					console.log('Failed to refresh token');
 				});
+				alert('11');
 				console.log('End of Function');
 			});
 		})(jQuery);
@@ -399,10 +406,13 @@
 			clientId: 'accidentalert-ui'
 		};
 		var keycloak = Keycloak(keyOptions);
+		alert('1');
 		keycloak.init({ onLoad: 'check-sso' }).success(function (authenticated) {
 			console.log(authenticated ? 'authenticated' : 'not authenticated');
+			alert('2');
 			if (authenticated) {
 				if (keycloak.hasRealmRole('policedept')) {
+					alert('3');
 					$('#accident-app').show();
 				}
 				else {
@@ -416,12 +426,14 @@
 				$('#loginUrl').show();
 			}
 		}).error(function () {
+			alert('4');
 			console.log('failed to initialize: ' + data);
 		});
 		var opts = {
 			redirectUri: window.location.origin + "/accident.html"
 		};
 		var loginUrl = keycloak.createLoginUrl(opts);
+		alert('5');
 		document.getElementById('loginUrl').href = loginUrl;
 	</script>
 
