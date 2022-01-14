@@ -367,6 +367,7 @@
 			$('#postReport').click(function () {
 				alert('7');
 				console.log('Start of Function');
+				alert('Token: ' + keycloak.token);
 				keycloak.updateToken(30).success(function () {
 					$.ajax({
 						type: "post",
