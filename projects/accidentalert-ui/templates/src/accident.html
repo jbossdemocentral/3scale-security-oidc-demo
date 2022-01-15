@@ -371,6 +371,7 @@
 				alert('URL: ' + urlhttp);
 				alert('reqdata: ' + reqdata);
 				
+				// original call to 3Scale Gateway 
 				keycloak.updateToken(30).success(function () {
 					$.ajax({
 						type: "post",
@@ -382,18 +383,43 @@
 						dataType: "json",
 						data: reqdata,
 						success: function (data) {
-							// alert('Success');
+							alert('Success');
 							$('#success-notification').show();
 						},
 						error: function (req, error,errorThrown) {
-							alert('Error: ' + req.responseText);
-							alert('Req: ' + req.status);
-							alert('ErrowThrown: ' + errorThrown);
+							alert('Back-end could not be accessed!');
+							//alert('Error: ' + req.responseText);
+							//alert('Req: ' + req.status);
+							//alert('ErrowThrown: ' + errorThrown);
 						}
 					});
 				}).error(function () {
 					alert('Failed to refresh token');
 				});
+				
+				//test call to route of back-end-service
+				keycloak.updateToken(30).success(function () {
+					$.ajax({
+						type: "post",
+						contentType: "application/json",
+						url: "http://accidentalert-backend-service-rhdwp.apps.shared-na46.openshift.opentlc.com/accidentcenter/report"
+						dataType: "json",
+						data: reqdata,
+						success: function (data) {
+							alert('2nd Success');
+							$('#success-notification').show();
+						},
+						error: function (req, error,errorThrown) {
+							alert('2nd The Submit Report has not worked. Please contact somebody!');
+							//alert('Error: ' + req.responseText);
+							//alert('Req: ' + req.status);
+							//alert('ErrowThrown: ' + errorThrown);
+						}
+					});
+				}).error(function () {
+					alert('Failed to refresh token');
+				});
+				
 				console.log('End of Function');
 			});
 		})(jQuery);
