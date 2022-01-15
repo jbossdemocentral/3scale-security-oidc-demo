@@ -365,14 +365,12 @@
 			$('#postReport').click(function () {
 				// alert('Customer has clicked on Submit Report');
 							
-				var urlhttp = 'http://localhost:8080/accidentcenter/report';
-				var reqdata = JSON.stringify($('#report').serializeObject());
-				alert('Token: ' + keycloak.token);
-				alert('URL: ' + urlhttp);
-				alert('reqdata: ' + reqdata);
 				
-				// original call to 3Scale Gateway 
+				
+				// original call to 3Scale Gateway mit Stephan API Product 
 				keycloak.updateToken(30).success(function () {
+					var urlhttp = 'http://localhost:8080/accidentcenter/report';
+					var reqdata = JSON.stringify($('#report').serializeObject());
 					$.ajax({
 						type: "post",
 						contentType: "application/json",
@@ -383,11 +381,45 @@
 						dataType: "json",
 						data: reqdata,
 						success: function (data) {
-							alert('Success');
+							alert('Success API Stephan');
 							$('#success-notification').show();
 						},
 						error: function (req, error,errorThrown) {
 							alert('Back-end could not be accessed!');
+							alert('Token: ' + keycloak.token);
+							alert('URL: ' + urlhttp);
+							alert('reqdata: ' + reqdata);
+							//alert('Error: ' + req.responseText);
+							//alert('Req: ' + req.status);
+							//alert('ErrowThrown: ' + errorThrown);
+						}
+					});
+				}).error(function () {
+					alert('Failed to refresh token');
+				});
+				
+				// original call to 3Scale Gateway mit Hugo API Product
+				keycloak.updateToken(30).success(function () {
+					var urlhttp = 'https://accidentalert-staging-rhdwp.apps.shared-na46.openshift.opentlc.com:443/accidentcenter/report';
+					var reqdata = JSON.stringify($('#report').serializeObject());
+					$.ajax({
+						type: "post",
+						contentType: "application/json",
+						headers: {
+							'Authorization': 'Bearer ' + keycloak.token
+						},
+						url: urlhttp,
+						dataType: "json",
+						data: reqdata,
+						success: function (data) {
+							alert('Success API Hugo');
+							$('#success-notification').show();
+						},
+						error: function (req, error,errorThrown) {
+							alert('Back-end could not be accessed!');
+							alert('Token: ' + keycloak.token);
+							alert('URL: ' + urlhttp);
+							alert('reqdata: ' + reqdata);
 							//alert('Error: ' + req.responseText);
 							//alert('Req: ' + req.status);
 							//alert('ErrowThrown: ' + errorThrown);
@@ -406,7 +438,7 @@
 						dataType: "json",
 						data: reqdata,
 						success: function (data) {
-							alert('2nd Success');
+							alert('Success with route');
 							$('#success-notification').show();
 						},
 						error: function (req, error,errorThrown) {
