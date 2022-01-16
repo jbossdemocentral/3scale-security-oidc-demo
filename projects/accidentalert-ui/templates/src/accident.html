@@ -381,17 +381,12 @@
 						dataType: "json",
 						data: reqdata,
 						success: function (data) {
-							alert('Success API Stephan');
+							console.log('Called back-end successfully!');
 							$('#success-notification').show();
 						},
 						error: function (req, error,errorThrown) {
 							alert('Back-end could not be accessed!');
-							alert('Token: ' + keycloak.token);
-							alert('URL: ' + urlhttp);
-							alert('reqdata: ' + reqdata);
-							//alert('Error: ' + req.responseText);
-							//alert('Req: ' + req.status);
-							//alert('ErrowThrown: ' + errorThrown);
+							console.log('Error:' + errorThrown);
 						}
 					});
 				}).error(function () {
@@ -413,14 +408,14 @@
 		var keycloak = Keycloak(keyOptions);
 		keycloak.init({ onLoad: 'check-sso' }).success(function (authenticated) {
 			console.log(authenticated ? 'authenticated' : 'not authenticated');
-			// alert('Token' + keycloak.token);
 			if (authenticated) {
 				if (keycloak.hasRealmRole('policedept')) {
 					$('#accident-app').show();
+					console.log('User has the required role');
 				}
 				else {
 					alert('User really cannot file reports');
-					//console.log('User unable to file reports');
+					console.log('User unable to file reports');
 				}
 				$('#loginUrl').hide();
 			}
