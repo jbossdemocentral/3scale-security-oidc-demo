@@ -346,7 +346,7 @@
 		(function ($) {
 			// countFld is the id of the field where you want the 'remaining chars. count' number
 			// to be displayed.
-					
+			console.log('Start of function');		
 			$('#description').countRemainingChars({
 				countFld: 'charRemainingCntFld',
 				charsMaxLimit: 250,
@@ -364,13 +364,15 @@
 
 			$('#postReport').click(function () {
 				// alert('Customer has clicked on Submit Report');
-							
+				console.log('Customer has clicked on Submit Report');			
 				
 				
 				// original call to 3Scale Gateway mit Stephan API Product 
 				keycloak.updateToken(30).success(function () {
 					var urlhttp = 'http://localhost:8080/accidentcenter/report';
 					var reqdata = JSON.stringify($('#report').serializeObject());
+					console.log('URL: ' + urlhttp);	
+					console.log('Reqdata: ' + reqdata);
 					$.ajax({
 						type: "post",
 						contentType: "application/json",
