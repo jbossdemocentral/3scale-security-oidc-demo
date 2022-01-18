@@ -402,12 +402,18 @@
 
 
 	<script type="text/javascript">
+		var keycloak_url='http://localhost:18080/auth';
+		val keycloak_realm = 'insurance';
+		var keycloak_clientid = '5ff7f088';
 		var keyOptions = {
-			url: 'http://localhost:18080/auth',
-			realm: 'insurance',
-			clientId: '5ff7f088'
+			url: keycloak_url,
+			realm: keycloak_realm,
+			clientId: keycloak_clientid
 		};
 		var keycloak = Keycloak(keyOptions);
+		console.log('Keycloak URL: ' + keycloak_url);
+		console.log('Realm ' + keycloak_realm);
+		console.log('ClientID ' + keycloak_clientid);
 		keycloak.init({ onLoad: 'check-sso' }).success(function (authenticated) {
 			console.log(authenticated ? 'authenticated' : 'not authenticated');
 			if (authenticated) {
