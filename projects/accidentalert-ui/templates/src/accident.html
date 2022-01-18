@@ -432,12 +432,13 @@
 				$('#loginUrl').show();
 			}
 		}).error(function () {
-			console.log('failed to initialize: ' + data);
+			console.log('Failed to initialize!');
 		});
 		var opts = {
 			redirectUri: window.location.origin + "/accident.html"
 		};
 		var loginUrl = keycloak.createLoginUrl(opts);
+		console.log('LoginURL: '+loginURL);
 		document.getElementById('loginUrl').href = loginUrl;
 	</script>
 
