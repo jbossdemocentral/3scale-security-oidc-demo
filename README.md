@@ -4,6 +4,14 @@
 
 _Securing APIs with OpenID Connect using 3scale API Management and Red Hat Single Sign On_ demo is a multi-product demo showing how Red Hat 3scale API Management and Red Hat Single Sign On can be use to evolve APIs security.
 
+**Audience**
+
+* Developers
+* Architects
+* IT Security
+* Integratorion Specialists
+
+
 **Products and Projects**
 
 * OpenShift Container Platform
@@ -12,43 +20,45 @@ _Securing APIs with OpenID Connect using 3scale API Management and Red Hat Singl
 * Red Hat Fuse
 * Red Hat AMQ
 
-**Provisioning Time:** ~15 min
+**Duration**
 
-**Slides:** https://github.com/jbossdemocentral/3scale-security-oidc-demo/tree/master/docs/slides.pdf
+The basic scenarios can be completed in 25 - 30 minutes. The time to complete the advanced scenario depends on the optional scenarios that you want to try.
 
-**Video:**
+**Video Overview**
 
 [![API Security with OpenID Connect](docs/images/video-thumbnail.png)](https://vimeo.com/259970326 "API Security with OpenID Connect - Click to Watch!")
 
-**Credentials**
 
-Red Hat Single Sign On
-  
-* Check the **credential-sso** Kubernetes Secret in the SSO namespace for admin username and password
+## Deployment
+To deploy the demos, request the **3Scale API Security with OIDC** workshop from the [Red Hat Product Demo System (RHPDS)](https://rhpds.redhat.com/catalog/explorer). 
 
-3scale API Management
+If you want to deploy in your own OpenShift cluster you can follow the installation instructions.
 
-* Username: **admin**
-* Password: **password**
+**Provisioning**
+Workshop provisioning takes a maximum of 60 - 75 minutes.
 
-Web Application
+If the workshop fails to deploy, resubmit your provisioning request. If deployment continues to fail after three attempts, open a ticket by [clicking here](https://redhat.service-now.com/help?id=sc_cat_item&sys_id=00c0316a1bf39450e43942a7bc4bcbd1).
 
-* Username: **statepolice**
-* Password: **password**
+After your provisioning request is received, the Red Hat Product Demo System sends you a series of email messages with updates about the status of the request. When your environment is ready to use, you receive a final email that includes information about how to access the environment.
+
 
 **Github Repo:** http://github.com/jbossdemocentral/3scale-security-oidc-demo
 
-## Background
+## Demo Overview
 
-Shadowman Insurance Corporation is one of the largest insurance providers in the country. Shadowman Insurance primarily offers its services through the Internet and through partner independent insurance agents. To stay competitive, they decide to start the new "Digital transformation Project" by transforming their entire business and organizational activities, processes to fully leverage the digital technologies. 
+Shadowman Insurance Corporation is one of the largest insurance providers in the country. Shadowman Insurance has developed a Web Application for customers to report accidents. It is a simple form that can be submitted (There is no additional logic implemented after the submit).
+
+The application initially consist of 2 services:
+UI service: written in Node.js which allows to report an accident 
+Back-end service: exposed via a REST interface and (in the beginning) a public route. The back-end service is just a facade, nothing happens with the data and the request.
+
 
 ### Accident Alerts
 
-Shadowman Insurance accident customer helpdesk center collects external reports of the clients and send them back to Shadowman daily. The company wants to enable police and fire departments access to the accident alert center web application. Currently that application is used by the helpdesk from the internal (VPN) network. As much as Shadowman Insurance's urgency to provide these capability, they were also concern about the security of the service they provide. No compromise when it comes to the safty of the client data and it's system.
+Shadowman Insurance CSO (Chief Security Officer) requested that all external facing services be compliant with the corporate security policy. Shadowman's were concerned about the security of this application and discovered the application was completely unprotected with a lot of security holes. 
 
-### API Security
+This workshop walks you through all the security holes and demonstrates how we can close these security holes with the help of the Red Hat portfolio.
 
-Shadowman Insurance CSO (Chief Security Officer) requested that all external facing services be compliant with the corporate security policy. Currently the web application is using Red Hat Single Sign On to secure the Accident Alert Center Portal. In this demo the backend REST service will be integrated with the Alert Center portal using an API Gateway secured service instead of the legacy unsecured endpoint.
 
 ## Demo Objectives
 
@@ -61,9 +71,8 @@ Shadowman Insurance CSO (Chief Security Officer) requested that all external fac
 
 ![Demo](docs/images/3scale-security-oidc-demo.png)
 
-## Deployment
-
-The easiest way to deploy this demos is to request it from [Red Hat Product Demo System (RHPDS)](https://rhpds.redhat.com). If you want to deploy in your own OpenShift cluster you can follow the [installation instructions](docs/Installation.md#installation).
+## Additional Scenarios
+Explore the additional scenarios where we explore things such as creating an API product from scratch instead of using the pre configure one on 3Scale, blocking access to all the clients in case of massive hack, implementing social logins for SSO.
 
 ## Support & Ownership
 
