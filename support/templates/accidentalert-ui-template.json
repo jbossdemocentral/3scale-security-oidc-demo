@@ -144,7 +144,9 @@
                 "name": "accidentalert-ui",
                 "labels": {
                     "deploymentConfig": "accidentalert-ui",
-                    "app": "accidentalert-ui"
+                    "app": "accidentalert-ui",
+                    "app.kubernetes.io/part-of": "frontend",
+                    "app.openshift.io/runtime": "js"
                 }
             },
             "spec": {
