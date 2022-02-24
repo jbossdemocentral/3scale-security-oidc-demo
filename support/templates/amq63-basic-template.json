@@ -228,7 +228,9 @@
             "metadata": {
                 "name": "${APPLICATION_NAME}-amq",
                 "labels": {
-                    "application": "${APPLICATION_NAME}"
+                    "application": "${APPLICATION_NAME}",
+                    "app.openshift.io/runtime": "amq",
+                    "app.kubernetes.io/part-of": "backend"
                 }
             },
             "spec": {

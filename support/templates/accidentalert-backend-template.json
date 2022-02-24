@@ -261,12 +261,17 @@
         "metadata": {
           "name": "${APP_NAME}",
           "creationTimestamp": null,
+          "annotations": {
+            "app.openshift.io/connects-to": "broker-amq"
+          },
           "labels": {
             "component": "${APP_NAME}",
             "group": "security-oidc",
             "project": "${APP_NAME}",
             "provider": "s2i",
-            "version": "${APP_VERSION}"
+            "version": "${APP_VERSION}",
+            "app.openshift.io/runtime": "rh-integration",
+            "app.kubernetes.io/part-of": "backend"
           }
         },
         "spec": {
