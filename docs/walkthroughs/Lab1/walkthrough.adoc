@@ -100,7 +100,7 @@ image::images/sso-user-cred.png[sso-user-cred]
 +
 image::images/sso-newuser-role.png[sso-newuser-role]
 
-.Try logging in to the accident portal using the new credentials (username: Customer1 and password: password). You should see an error message as this user doesn't have enough permissions to perform this actions
+. Try logging in to the accident portal using the new credentials (username: Customer1 and password: password). You should see an error message as this user doesn't have enough permissions to perform this actions
 +
 image::images/sso-user-permission-denied.png[sso-user-denied]
 
@@ -108,4 +108,4 @@ image::images/sso-user-permission-denied.png[sso-user-denied]
 +
 image::images/sso-newuser-add-role.png[sso-newuser-add-role]
 
-Click here to proceed with the next scenario.
+Click next to proceed with the next scenario.
