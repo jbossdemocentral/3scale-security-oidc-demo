@@ -60,7 +60,7 @@ image::images/delete-route.png[delete-route]
 . Make another request via postman now. You will see that the backend cannot be reached anymore.
 +
 image::images/postman-fail.png[postman-fail]
-
++
 However this also breaks our web app as it was making a plain ajax call to call the backend (Look at the frontend code snippet below). Refresh the web app and try submitting a new report. You will not be able to submit the report. You can cross check the same by monitoring the backend logs while you make the new request. 
 +
 image::images/code-ajax.png[code-ajax]
