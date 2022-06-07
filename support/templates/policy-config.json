@@ -5,7 +5,8 @@
         "configuration": {
             "allow_headers": [
                 "authorization",
-                "content-type"
+                "content-type",
+                "x-requested-with"
             ],
             "allow_credentials": true,
             "allow_methods": [
