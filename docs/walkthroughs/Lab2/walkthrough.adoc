@@ -60,7 +60,7 @@ image::images/delete-route.png[delete-route]
 . Make another request via postman now. You will see that the backend cannot be reached anymore.
 +
 image::images/postman-fail.png[postman-fail]
-
++
 However this also breaks our web app as it was making a plain ajax call to call the backend (Look at the frontend code snippet below). Refresh the web app and try submitting a new report. You will not be able to submit the report. You can cross check the same by monitoring the backend logs while you make the new request. 
 +
 image::images/code-ajax.png[code-ajax]
@@ -228,9 +228,11 @@ image::images/postman-auth-fail.png[postman-auth-fail]
 . From 3Scale admin dashboard navigate to Accident Report API > Analytics > Traffic. We can see the the information about no.of hits to the APIs, the daily averages, response/error code analytics etc in the analytics section
 +
 image::images/3scale-traffic.png[3scale-traffic]
-
-*One can also restrict the number of calls an application can make by setting limits in the application plans*. 
 +
+{sp}
++
+*One can also restrict the number of calls an application can make by setting limits in the application plans*. 
+
 . From 3Scale admin dashboard navigate to Accident Report API > Applications > Application Plans > Click on the Law Enforcement appication plan. 
 +
 image::images/3scale-app-plan.png[3scale-app-plan]
