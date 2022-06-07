@@ -73,22 +73,9 @@
                         "from": {
                             "kind": "ImageStreamTag",
                             "namespace": "openshift",
-                            "name": "nodejs:10"
+                            "name": "nodejs:16-ubi8"
                         },
-                        "env": [
-                            {
-                                "name": "SSO_URL",
-                                "value": "${SSO_URL}"
-                            },
-                            {
-                                "name": "BACKEND_URL",
-                                "value": "${BACKEND_URL}"
-                            },
-                            {
-                                "name": "LIVERELOAD",
-                                "value": "${LIVERELOAD}"
-                            }
-                        ]
+                        "env": []
                     }
                 },
                 "output": {
@@ -171,7 +158,32 @@
                                 "name": "accidentalert-ui",
                                 "image": "accidentalert-ui",
                                 "imagePullPolicy": "Always",
-                                "env": [],
+                                "env": [
+                                    {
+                                        "name": "BACKEND_URL",
+                                        "value": "${BACKEND_URL}/accidentcenter/report"
+                                    },
+                                    {
+                                        "name": "KEYCLOAK_URL",
+                                        "value": "${SSO_URL}/auth"
+                                    },
+                                    {
+                                        "name": "KEYCLOAK_REALM",
+                                        "value": "insurance"
+                                    },
+                                    {
+                                        "name": "KEYCLOAK_CLIENT_ID",
+                                        "value": "accidentalert-ui"
+                                    },
+                                    {
+                                        "name": "KEYCLOAK_ROLE",
+                                        "value": "none"
+                                    },
+                                    {
+                                        "name": "AUTHENTICATION_OPTION",
+                                        "value": "none"
+                                    }
+                                ],        
                                 "ports": [
                                     {
                                         "name": "alertui-http",
