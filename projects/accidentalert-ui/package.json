@@ -2,36 +2,41 @@
   "name": "accidentalert-ui",
   "version": "1.0.0",
   "description": "Insurance Accident Alert Web Application",
-  "main": "index.html",
+  "main": "server.js",
+  "dependencies": {
+    "bootstrap-datepicker": "^1.9.0",
+    "express": "^4.17.3",
+    "patternfly": "^3.59.5",
+    "string-replace-middleware": "^1.0.2"
+  },
+  "devDependencies": {
+    "node-sass-middleware": "^1.0.1"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "http-server templates/dist --no-color",
-    "build": "gulp build",
-    "dev": "gulp serve"
+    "start": "node server.js"
   },
-  "author": "@hguerreroo",
-  "license": "MIT",
-  "devDependencies": {
-    "event-stream": "^3.3.4",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^4.1.0",
-    "gulp-clean": "^0.4.0",
-    "gulp-clean-css": "^3.9.2",
-    "gulp-imagemin": "^4.1.0",
-    "gulp-include": "^2.3.1",
-    "gulp-livereload": "^3.8.1",
-    "gulp-notify": "^3.2.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^3.1.0",
-    "gulp-sourcemaps": "^2.6.3",
-    "gulp-string-replace": "^1.0.0",
-    "gulp-uglify": "^3.0.0",
-    "gulp-webserver": "^0.9.1",
-    "lodash": "^4.17.4",
-    "yn": "^2.0.0",
-    "patternfly": "^3.37.1"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jbossdemocentral/3scale-security-oidc-demo.git"
   },
-  "dependencies": {
-    "http-server": "^0.11.1"
-  }
+  "keywords": [
+    "3scale",
+    "security",
+    "demo",
+    "oidc",
+    "openid",
+    "connect"
+  ],
+  "author": "Red Hat",
+  "contributors": [
+    {
+      "name": "Hugo Guerrero"
+    }
+  ],
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/jbossdemocentral/3scale-security-oidc-demo/issues"
+  },
+  "homepage": "https://github.com/jbossdemocentral/3scale-security-oidc-demo#readme"
 }

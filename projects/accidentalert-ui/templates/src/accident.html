@@ -19,7 +19,7 @@
 	<!-- Loading main css file -->
 	<link rel="stylesheet" href="assets/css/styles.min.css">
 
-	<script src="http://localhost:18080/auth/js/keycloak.js"></script>
+	<script src="ENVIRONMENT.KEYCLOAK_URL/js/keycloak.js"></script>
 
 	<!--[if lt IE 9]>
 		<script src="js/ie-support/html5.js"></script>
@@ -326,12 +326,12 @@
 		</div>
 	</div>
 
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/jquery-1.11.1.min.min.js"></script>
+	<!-- <script src="assets/js/jquery.min.js"></script> -->
+	<script src="assets/js/jquery-1.11.1.min.js"></script>
 	<script src="assets/js/bootstrap-datepicker.min.js"></script>
 	<script src="assets/js/patternfly.min.js"></script>
-	<script src="assets/js/plugins.min.js"></script>
-	<script src="assets/js/app.min.js"></script>
+	<script src="assets/js/plugins.js"></script>
+	<script src="assets/js/app.js"></script>
 
 	<script type="text/javascript">
 		// Initialize Boostrap-Datepicker
@@ -347,6 +347,11 @@
 			todayHighlight: true
 		});
 		$('#success-notification').hide();
+		
+		var backend_url = 'ENVIRONMENT.BACKEND_URL';
+		var authentication_option = 'ENVIRONMENT.AUTHENTICATION_OPTION';
+		console.log('BACKEND_URL: '+ backend_url);
+
 		(function ($) {
 			// countFld is the id of the field where you want the 'remaining chars. count' number
 			// to be displayed.
@@ -369,7 +374,7 @@
 				$.ajax({
 					type: "post",
 					contentType: "application/json",
-					url: "http://localhost:8080/accidentcenter/report",
+					url: backend_url,
 					dataType: "json",
 					data: JSON.stringify($('#report').serializeObject()),
 					success: function (data) {
@@ -385,10 +390,22 @@
 
 
 	<script type="text/javascript">
+		var keycloak_url = 'ENVIRONMENT.KEYCLOAK_URL';
+		var keycloak_realm = 'ENVIRONMENT.KEYCLOAK_REALM';
+		var keycloak_client_id = 'ENVIRONMENT.KEYCLOAK_CLIENT_ID';
+		var keycloak_role = 'ENVIRONMENT.KEYCLOAK_ROLE';
+		var authentication_option = 'ENVIRONMENT.AUTHENTICATION_OPTION';
+			
+		console.log('KEYCLOAK_URL: ' + keycloak_url);
+		console.log('KEYCLOAK_REALM: ' + keycloak_realm);
+		console.log('CLIENT_ID: ' + keycloak_client_id);
+		console.log('KEYCLOAK_ROLE: ' + keycloak_role);
+		console.log('AUTHENTICATION_OPTION: ' + authentication_option);
+
 		var keyOptions = {
-			url: 'http://localhost:18080/auth',
-			realm: 'insurance',
-			clientId: 'accidentalert-ui'
+			url: keycloak_url,
+			realm: keycloak_realm,
+			clientId: keycloak_client_id
 		};
 		var keycloak = Keycloak(keyOptions);
 		keycloak.init({ onLoad: 'check-sso' }).success(function (authenticated) {
