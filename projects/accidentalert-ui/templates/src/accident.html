@@ -378,7 +378,7 @@
 						headers: {
 							'Authorization': 'Bearer ' + keycloak.token
 						},
-						url: "http://localhost:8080/accidentcenter/report",
+						url: backend_url,
 						dataType: "json",
 						data: JSON.stringify($('#report').serializeObject()),
 						success: function (data) {
