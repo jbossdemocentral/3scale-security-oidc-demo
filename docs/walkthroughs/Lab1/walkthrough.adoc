@@ -1,7 +1,7 @@
 //attributes
 :title: Scenario 1 - Creating a secure login using Red Hat SSO
 
-[id='3Scale-security-demo'] 
+[id='3scale-security-demo'] 
 = {title}
 
 //Description text for Solution Pattern

@@ -1,11 +1,11 @@
 //attributes
-:title: Scenario 2 - Protecting the backend with Red Hat 3Scale API Management
+:title: Scenario 2 - Protecting the backend with Red Hat 3scale API Management
 
-[id='3Scale-security-demo'] 
+[id='3scale-security-demo'] 
 = {title}
 
 //Description text for Solution Pattern
-In the previous section we've learnt how to protect our front-end from unauthorised users by using RH-SSO. However the backend of our application is still unprotected and anybody with an access to the public url of our backend can access it and make HTTP requets. In fact, our back-end is still publicly available and doesn’t check for any authentication, nor authorization. This is not ideal. This tutorial demonstrates how we can  provide a secure access to our backend only to authorised applications using Red Hat 3Scale API management. 
+In the previous section we've learnt how to protect our front-end from unauthorised users by using RH-SSO. However the backend of our application is still unprotected and anybody with an access to the public url of our backend can access it and make HTTP requets. In fact, our back-end is still publicly available and doesn’t check for any authentication, nor authorization. This is not ideal. This tutorial demonstrates how we can  provide a secure access to our backend only to authorised applications using Red Hat 3scale API management. 
 
 *Credentials:*
 
@@ -13,9 +13,9 @@ OpenShift Username: _Use your OPENTLC credentials to log into the OpenShift cons
 
 OpenShift Password: _Use your OPENTLC credentials to log into the OpenShift console_
 
-3Scale Admin Username: _You can find these details in the lab setup email_
+3scale Admin Username: _You can find these details in the lab setup email_
 
-3Scale Admin Password: _You can find these details in the lab setup email_ 
+3scale Admin Password: _You can find these details in the lab setup email_ 
 
 *Prequisites:*
 
@@ -31,6 +31,8 @@ Install postman on your local machine or you can register for a free account htt
 +
 image::images/os-topology-backend.png[backend-pod]
 +
+{blank}
++
 image::images/backend-route-info.png[backend-route]
 
 . Copy the url under routes and append '/accidentcenter/report' to it. Create a POST request on Postman using this newly created URL. Donot forget to copy and paste this payload in the Body > raw field but you hit the send button.(This is basically the same information that we fill in the web UI form)
@@ -44,6 +46,8 @@ image::images/postman-success.png[postman-success]
 . Verify if the backend received the POST call. To access the logs of our backend navigate select the backend project on OpenShift and Navigate to Topology > Backend pod > View logs
 +
 image::images/os-log-screen.png[os-log-screen]
++
+{blank}
 +
 image::images/backend-logs.png[backend-logs]
 
@@ -67,7 +71,7 @@ image::images/code-ajax.png[code-ajax]
 
 [time=2]
 [id="securing-apis"]
-== Providing secure access to the backend with 3Scale API Management
+== Providing secure access to the backend with 3scale API Management
 
 We are now in a very unsatisfactory situation. We have secured our end-point, but we can’t access it anymore from our application. So, now we have two main options:
  
@@ -76,7 +80,7 @@ We are now in a very unsatisfactory situation. We have secured our end-point, bu
  ** We could add an API Management layer that is located close to the back-end. This would also give us more flexibility to manage rate limits, monitor traffic, etc.
  
  
-. Login to 3Scale and click the 'X' icon on the welcome page to see the admin dashboard
+. Login to 3scale and click the 'X' icon on the welcome page to see the admin dashboard
 +
 image::images/3scale-welcome.png[3scale-welcome]
 
@@ -84,7 +88,7 @@ image::images/3scale-welcome.png[3scale-welcome]
 +
 [NOTE]
 ====
-A 3Scale api product is a bundle of one or more API backends. Products facilitate the creation of strong and simplified offerings for API consumers. A product can contain multiple backends.
+A 3scale api product is a bundle of one or more API backends. Products facilitate the creation of strong and simplified offerings for API consumers. A product can contain multiple backends.
 ====
 +
 image::images/3scale-dashboard.png[3scale-dashboard]
@@ -101,11 +105,13 @@ To retrieve the the Service name and Namespace from OpenShift go to Topology > C
 +
 image::images/topology-service.png[topology-service]
 +
+{blank}
++
 image::images/service-details.png[service-details]
 +
 [NOTE]
 ====
-This service will only be accessible within the OpenShift Cluster. 3Scale API gateway is also deployed on the same cluster so that it can access this backend service via it's service hostname.
+This service will only be accessible within the OpenShift Cluster. 3scale API gateway is also deployed on the same cluster so that it can access this backend service via it's service hostname.
 ====
 
 . Navigate to Products (Accident Report API) > Integration > Mapping Rules > Click on edit the button
@@ -133,9 +139,11 @@ image::images/app-plans.png[app-plans]
 +
 image::images/staging-promote.png[staging-promote]
 
-. Developers can create applications with unique IDs and secrets for accessing the API. In our case the Accident Report Front end is the application that would need access to the backend. Go to Audience > Application > Listing > Accident Report App to verify the details. The app and all the details have been pre created for the purpose of this lab. Check out these steps to see a detailed explanation on how to create a 'app' in 3Scale.
+. Developers can create applications with unique IDs and secrets for accessing the API. In our case the Accident Report Front end is the application that would need access to the backend. Go to Audience > Application > Listing > Accident Report App to verify the details. The app and all the details have been pre created for the purpose of this lab. Check out these steps to see a detailed explanation on how to create a 'app' in 3scale.
 +
 image::images/app-listing.png[app-details]
++
+{blank}
 +
 image::images/app-details.png[app-details]
 
@@ -145,7 +153,7 @@ image::images/3scale-auth.png[3scale-auth]
 +
 [NOTE]
 ====
-3Scale also provides three different ways of authentication for a product:
+3scale also provides three different ways of authentication for a product:
 
 ** API Key (user_key) The application is identified & authenticated via a single string. (If a hacker or unauthorise user gets hold of this key, they can access our backend)
 
@@ -154,11 +162,15 @@ image::images/3scale-auth.png[3scale-auth]
 ** OpenID Connect Use OpenID Connect for any OAuth 2.0 flow. (We've used this method in our lab)
 ====
 
-. As a result of the above configuration 3Scale automatically syncs the  with RH-SSO. From RH-SSO admin console navigate to Clients and verify the app ('accidentaler-ui' in our case) is created. Click on it to verify the all the application configuration details such as the description, Valid Redirect URIs and Web Origin have the same values as we provided in 3Scale.
+. As a result of the above configuration 3scale automatically syncs the  with RH-SSO. From RH-SSO admin console navigate to Clients and verify the app ('accidentaler-ui' in our case) is created. Click on it to verify the all the application configuration details such as the description, Valid Redirect URIs and Web Origin have the same values as we provided in 3scale.
 +
 image::images/3scale-client-created.png[3scale-client-created]
 +
+{blank}
++
 image::images/app-details-sso.png[app-details-sso]
++
+{blank}
 +
 image::images/3scale-app-details.png[3scale-app-details]
 
@@ -182,18 +194,9 @@ We now need to rebuild the front end application using the new code form secured
 +
 image::images/builds-config-screen.png[builds-config-screen]
 
-. In the “YAML” line 89 change the ref(branch) from  master to secured
+. In the “YAML” line 89 change the ref(branch) from  `master` to `secured`
 +
 image::images/build-yaml.png[build-yaml]
-
-. In order to let the UI also point to the API Gateway (and not the back-end route), we also have to change the environment variable of the build
-Go to tab “Environment” and change the value of BACKEND_URL to that of the API Gateway (Staging) provided in 3Scale and save it. 
-+
-Copy this URL from 3Scale and paste in OpneShift
-+
-image::images/secured-branch.png[secured-branch]
-+
-image::images/environment-variable.png[environment-variable]
 
 . Choose “Actions->Start Build”
 +
@@ -205,27 +208,54 @@ image::images/start-build.png[start-build]
 +
 image::images/build-in-process.png[build-in-process]
 +
+{blank}
++
 image::images/build-live.png[build-live]
+
+. In order to let the UI also point to the API Gateway (and not the back-end route), we also have to change the environment variable of the deployment. Click on the *DC accidentalert-ui* link to navigate to the DeploymentConfig settings. 
++
+image::images/deployment-config.png[deployment-config]
+
+. Go to tab “Environment” and change the value of BACKEND_URL to that of the API Gateway (Staging) provided in 3scale and save it. 
++
+[NOTE]
+====
+Copy this URL from 3scale
+====
++
+image::images/3scale-staging.png[3scale-staging]
++
+
+. Paste in OpenShift and click *save*.
++
+image::images/environment-variable.png[environment-variable]
++
+[IMPORTANT]
+====
+Check that you keep the path in the URL: `/accidentcenter/report`.
+====
+
+. Wait for the new deployment to finish.
 
 . Test the new application version from the Web GUI. Do a refresh of the “Shadowman Insurance” page. Click on Accidents -> “Log in to file a report”. Before you click on submit right click > inspect to monitor the network(api calls) that the front end is making.
 +
 image::images/inspect-frontend.png[inspect-frontend]
 
-. From the network calls we can see that the front end is calling the 3Scale API Gateway
+. From the network calls we can see that the front end is calling the 3scale API Gateway
 +
 image::images/request-url.png[request-url]
 
-. Copy the request url and try making a call to the backend via postman. You should see an authentication error such as the one below. In this way  we have secured our backend and provided a secure way for the frontend to access it using 3Scale and SSO
+. Copy the request url and try making a call to the backend via postman. You should see an authentication error such as the one below. In this way  we have secured our backend and provided a secure way for the frontend to access it using 3scale and SSO
 +
 image::images/postman-auth-fail.png[postman-auth-fail]
 
 [time=2]
 [id="monitoring-apis"]
-== Monitoring APIs with RH 3Scale
+== Monitoring APIs with RH 3scale
 
-3Scale admins can monitor the the usage of different APIs using the analytics provided and also put some rate limits to restrict access to this APIs. We shall explore them in this section
+3scale admins can monitor the the usage of different APIs using the analytics provided and also put some rate limits to restrict access to this APIs. We shall explore them in this section
 
-. From 3Scale admin dashboard navigate to Accident Report API > Analytics > Traffic. We can see the the information about no.of hits to the APIs, the daily averages, response/error code analytics etc in the analytics section
+. From 3scale admin dashboard navigate to Accident Report API > Analytics > Traffic. We can see the the information about no.of hits to the APIs, the daily averages, response/error code analytics etc in the analytics section
 +
 image::images/3scale-traffic.png[3scale-traffic]
 +
@@ -233,7 +263,7 @@ image::images/3scale-traffic.png[3scale-traffic]
 +
 *One can also restrict the number of calls an application can make by setting limits in the application plans*. 
 
-. From 3Scale admin dashboard navigate to Accident Report API > Applications > Application Plans > Click on the Law Enforcement appication plan. 
+. From 3scale admin dashboard navigate to Accident Report API > Applications > Application Plans > Click on the Law Enforcement appication plan. 
 +
 image::images/3scale-app-plan.png[3scale-app-plan]
 
@@ -241,7 +271,7 @@ image::images/3scale-app-plan.png[3scale-app-plan]
 +
 image::images/usage-limit.png[usage-limit]
 
-. Change the period to minute and Max value to 3. Click on  Create Usage limit. This means that we are giving instructions to 3Scale to limit the number of calls to this API from our front end application to 3 per minute. 
+. Change the period to minute and Max value to 3. Click on  Create Usage limit. This means that we are giving instructions to 3scale to limit the number of calls to this API from our front end application to 3 per minute. 
 +
 image::images/set-limit.png[set-limit]
 

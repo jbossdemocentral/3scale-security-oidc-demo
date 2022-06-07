@@ -30,7 +30,7 @@ The basic scenarios can be completed in 25 - 30 minutes. The time to complete th
 
 
 ## Deployment
-To deploy the demos, request the **3Scale API Security with OIDC** workshop from the [Red Hat Product Demo System (RHPDS)](https://rhpds.redhat.com/catalog/explorer). 
+To deploy the demos, request the **3scale API Security with OIDC** workshop from the [Red Hat Product Demo System (RHPDS)](https://rhpds.redhat.com/catalog/explorer). 
 
 If you want to deploy in your own OpenShift cluster you can follow the installation instructions.
 
@@ -72,7 +72,7 @@ This workshop walks you through all the security holes and demonstrates how we c
 ![Demo](docs/images/3scale-security-oidc-demo.png)
 
 ## Additional Scenarios
-Explore the additional scenarios where we explore things such as creating an API product from scratch instead of using the pre configure one on 3Scale, blocking access to all the clients in case of massive hack, implementing social logins for SSO.
+Explore the additional scenarios where we explore things such as creating an API product from scratch instead of using the pre configure one on 3scale, blocking access to all the clients in case of massive hack, implementing social logins for SSO.
 
 ## Support & Ownership
 
