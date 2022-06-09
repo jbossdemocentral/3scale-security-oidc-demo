@@ -9,13 +9,13 @@ In the previous section we've learnt how to protect our front-end from unauthori
 
 *Credentials:*
 
-OpenShift Username: _Use your OPENTLC credentials to log into the OpenShift console_
+*OpenShift Username*: _Use your OPENTLC credentials to log into the OpenShift console_
 
-OpenShift Password: _Use your OPENTLC credentials to log into the OpenShift console_
+*OpenShift Password*: _Use your OPENTLC credentials to log into the OpenShift console_
 
-3scale Admin Username: _You can find these details in the lab setup email_
+*3scale Admin Username*: _You can find these details in the lab setup email_
 
-3scale Admin Password: _You can find these details in the lab setup email_ 
+*3scale Admin Password*: _You can find these details in the lab setup email_ 
 
 *Prequisites:*
 
@@ -26,8 +26,8 @@ Install postman on your local machine or you can register for a free account htt
 == Deleting the public route of the backend 
 
 . Launch a new a tab on the browser
-. Navigate to the OpenShift console link provided in the email
-. Click on Topology > Select the project that starts with 'service' (This is the project for the backend of our application deployed on OpenShift). Click on the backend pod to find the details and public url of the backend
+. Navigate to the OpenShift console 
+. Click on Topology > Select the project that starts with *service* (This is the project for the backend of our application deployed on OpenShift). Click on the backend pod to find the details and public url of the backend
 +
 image::images/os-topology-backend.png[backend-pod]
 +
@@ -35,11 +35,22 @@ image::images/os-topology-backend.png[backend-pod]
 +
 image::images/backend-route-info.png[backend-route]
 
-. Copy the url under routes and append '/accidentcenter/report' to it. Create a POST request on Postman using this newly created URL. Donot forget to copy and paste this payload in the Body > raw field but you hit the send button.(This is basically the same information that we fill in the web UI form)
+. Copy the url under routes and append '/accidentcenter/report' to it.
 +
 image::images/postman-post.png[postman-post-screen]
 
-. The backend returns a success message to Postman.
+. Create a POST request on Postman using this newly created URL. Donot forget to copy and paste the below payload in the Body > raw field before you hit the send button.(This is basically the same information that we fill in the web UI form). The backend returns a success message to Postman.
++
+```
+{
+  "contactName": "baduser",
+  "email": "baduser@gmail.com",
+  "phone": "1245",
+  "date": "02/09/2022",
+  "type": "house",
+  "description": "hacked"
+}
+```
 +
 image::images/postman-success.png[postman-success]
 
@@ -53,7 +64,7 @@ image::images/backend-logs.png[backend-logs]
 
 This shows that anyone with the public route of the backend can directly access and send requests to it.
 
-. To avoid this delete the Route that provides the public access to our backend. Access the route by navigating to the pod deailts screen on OpenShift
+. To avoid this delete the Route that provides the public access to our backend. Access the route by navigating to the pod details screen on OpenShift
 +
 image::images/backend-route-click.png[backend-route-click]
 
@@ -93,11 +104,11 @@ A 3scale api product is a bundle of one or more API backends. Products facilitat
 +
 image::images/3scale-dashboard.png[3scale-dashboard]
 
-. Navigate to Integration > Backends > Click on the 'Accident Report Api' backend
+. Navigate to _Integration > Backends > Click on the 'Accident Report Api' backend_
 +
 image::images/backend-list.png[backend-list]
 
-. Click on edit on the top right corner and change the value of the private base URL to the internal host name of the backend service i.e. http://[Service-name].[Namespace of Back-end Service].svc:8080. Click on 'Update Backend'
+. Click on edit on the top right corner and change the value of the private base URL to the internal host name of the backend service i.e. *http://[Service-name].[Namespace of Back-end Service].svc:8080* Click on 'Update Backend'
 +
 image::images/private-base-url.png[private-base-url]
 +
@@ -118,13 +129,9 @@ This service will only be accessible within the OpenShift Cluster. 3scale API ga
 +
 image::images/mapping-rules.png[mapping-rules]
 
-. Navigate to Products (Accident Report API) > Integration > Mapping Rules > Click on edit the button
-+
-image::images/mapping-rules.png[mapping-rules]
-
 . Change the verb to 'POST as we will be sending data to the backend. The mapping rules let us mask 'Verbs' as patterns. In our case any POST request that hits the '/' of the path of the service will increment the no. of hits to the backend. 
 +
-image::images/mapping-rules.png[mapping-rules]
+image::images/mappingrules-post.png[mapping-rules]
 
 . Navigate to Application > Application Plans > Law Enforcement to verify the application plan available. The Law Enforcement application plan has been pre created for the purpose of this lab.
 +
@@ -135,7 +142,7 @@ Application Plans define the different sets of access rights you might want to a
 +
 image::images/app-plans.png[app-plans]
 
-. Now, promote this new Product to the “Staging” Environment.Click on “Integration” -> Configuration -> “Promote v.x to Staging APIcast”
+. Now, promote this new Product to the _Staging_ Environment.Click on *Integration -> Configuration -> Promote v.x to Staging APIcast*
 +
 image::images/staging-promote.png[staging-promote]
 
@@ -162,7 +169,7 @@ image::images/3scale-auth.png[3scale-auth]
 ** OpenID Connect Use OpenID Connect for any OAuth 2.0 flow. (We've used this method in our lab)
 ====
 
-. As a result of the above configuration 3scale automatically syncs the  with RH-SSO. From RH-SSO admin console navigate to Clients and verify the app ('accidentaler-ui' in our case) is created. Click on it to verify the all the application configuration details such as the description, Valid Redirect URIs and Web Origin have the same values as we provided in 3scale.
+. As a result of the above configuration 3scale automatically syncs the  with RH-SSO. From RH-SSO admin console navigate to Clients and verify the app (*accidentaler-ui* in our case) is created. Click on it to verify the all the application configuration details such as the _description_, _Valid Redirect URIs_ and _Web Origin_ have the same values as we provided in 3scale.
 +
 image::images/3scale-client-created.png[3scale-client-created]
 +
@@ -194,15 +201,15 @@ We now need to rebuild the front end application using the new code form secured
 +
 image::images/builds-config-screen.png[builds-config-screen]
 
-. In the “YAML” line 89 change the ref(branch) from  `master` to `secured`
+. Click on the YAML view radio button. In the “YAML” around the line 71 change the ref(branch) from  `master` to `secured` and save.
 +
 image::images/build-yaml.png[build-yaml]
 
-. Choose “Actions->Start Build”
+. Navigate to Builds and Choose _Actions->Start Build_
 +
 image::images/start-build.png[start-build]
 
-. Go to “Developer perspective -> Topology” and click on the “accidentalert-ui” icon
+. Go to _Developer perspective -> Topology_ and click on the “accidentalert-ui” icon
 (You can see that the build is running which takes a bit.) Wait until the new version is deployed
 (You can also see that under Details -> “Latest version” has been changed to “2”)
 +
@@ -216,7 +223,7 @@ image::images/build-live.png[build-live]
 +
 image::images/deployment-config.png[deployment-config]
 
-. Go to tab “Environment” and change the value of BACKEND_URL to that of the API Gateway (Staging) provided in 3scale and save it. 
+. Go to tab _Environment_ and change the value of BACKEND_URL to that of the API Gateway (Staging) provided in 3scale and save it. 
 +
 [NOTE]
 ====
@@ -226,18 +233,18 @@ Copy this URL from 3scale
 image::images/3scale-staging.png[3scale-staging]
 +
 
-. Paste in OpenShift and click *save*.
+. Paste in OpenShift and append `/accidentcenter/report` path to the URL and click *save*.
 +
 image::images/environment-variable.png[environment-variable]
 +
 [IMPORTANT]
 ====
-Check that you keep the path in the URL: `/accidentcenter/report`.
+Double check that you added the path to the URL: `/accidentcenter/report`.
 ====
 
 . Wait for the new deployment to finish.
 
-. Test the new application version from the Web GUI. Do a refresh of the “Shadowman Insurance” page. Click on Accidents -> “Log in to file a report”. Before you click on submit right click > inspect to monitor the network(api calls) that the front end is making.
+. Test the new application version from the Web GUI. Do a refresh of the “Shadowman Insurance” page. Click on *Accidents -> Log in to file a report*. Before you click on submit _Right click > Inspect_ to monitor the network(api calls) that the front end is making.
 +
 image::images/inspect-frontend.png[inspect-frontend]
 
@@ -245,7 +252,18 @@ image::images/inspect-frontend.png[inspect-frontend]
 +
 image::images/request-url.png[request-url]
 
-. Copy the request url and try making a call to the backend via postman. You should see an authentication error such as the one below. In this way  we have secured our backend and provided a secure way for the frontend to access it using 3scale and SSO
+. Copy the request url and try making a call to the backend via postman. You can copy paste the below payload for the *Body > raw* section.  You should see an authentication error such as the one below. In this way  we have secured our backend and provided a secure way for the frontend to access it using 3scale and SSO
++
+```
+{
+  "contactName": "customer3",
+  "email": "customer3@gmail.com",
+  "phone": "98761245",
+  "date": "02/09/2022",
+  "type": "car",
+  "description": "report filing damage"
+}
+```
 +
 image::images/postman-auth-fail.png[postman-auth-fail]
 
@@ -263,27 +281,27 @@ image::images/3scale-traffic.png[3scale-traffic]
 +
 *One can also restrict the number of calls an application can make by setting limits in the application plans*. 
 
-. From 3scale admin dashboard navigate to Accident Report API > Applications > Application Plans > Click on the Law Enforcement appication plan. 
+. From 3scale admin dashboard navigate to _Accident Report API > Applications > Application Plans_ . Click on the _Law Enforcement_ application plan. 
 +
 image::images/3scale-app-plan.png[3scale-app-plan]
 
-. Click on Limits > New Usage limit to add a new usage limit to our API.
+. Click on _Limits > New Usage_ limit to add a new usage limit to our API.
 +
 image::images/usage-limit.png[usage-limit]
 
-. Change the period to minute and Max value to 3. Click on  Create Usage limit. This means that we are giving instructions to 3scale to limit the number of calls to this API from our front end application to 3 per minute. 
+. Change the period to *minute* and Max value to *3*. Click on _Create Usage limit_. This means that we are giving instructions to 3scale to limit the number of calls to this API from our front end application to 3 per minute. 
 +
 image::images/set-limit.png[set-limit]
 
-. Now let's test this out by making more than 3 calls with a minute from our front end app. Navigate to our accident report app. Right click mouse to inspect the the network call and reponse codes as we illustrated in one of our earlier steps. Submit more than 4 to 5 reports with a minute.  
+. Now let's test this out by making more than 3 calls with a minute from our front end app. Navigate to our accident report app. Right click mouse to inspect the the network call and response codes as we illustrated in one of our earlier steps. Submit more than 4 to 5 reports with a minute.  
 +
 image::images/limit-inspect.png[limit-inspect]
 
-.  After the number of submissions within a minute have crossed 3 you should see a failed request with a status code 429 in your network tab
+.  After the number of submissions within a minute have crossed 3 you should see a failed request with a status code *429* in your network tab
 +
 image::images/limit-reached.png[limit-inspect]
 
-.  Click on the report with status 429 to see the details. The status code description should say too many requests. This shows that our usage limit has kicked in to restrict the number of calls from a particular application. This is particualrly useful when someone is trying to exploit your APIs by making too many requests and also for monetization purposes.
+.  Click on the report with status 429 to see the details. The status code description should say *too many requests*. This shows that our usage limit has kicked in to restrict the number of calls from a particular application. This is particularly useful when someone is trying to exploit your APIs by making *too many requests* and also for *monetization* purposes.
 +
 image::images/429-details.png[429-details]
 
