@@ -9,9 +9,9 @@ In the previous section we've learnt how to protect our front-end from unauthori
 
 *Credentials:*
 
-*OpenShift Username*: _Use your OPENTLC credentials to log into the OpenShift console_
+*OpenShift Username*: _Use your Red Hat associate SSO credentials to log into the OpenShift console_
 
-*OpenShift Password*: _Use your OPENTLC credentials to log into the OpenShift console_
+*OpenShift Password*: _Use your Red Hat associate SSO credentials to log into the OpenShift console_
 
 *3scale Admin Username*: _You can find these details in the lab setup email_
 

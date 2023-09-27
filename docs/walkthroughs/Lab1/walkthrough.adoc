@@ -9,9 +9,9 @@ This tutorial demonstrates how to provide a secure access to the accident report
 
 *Credentials:*
 
-*OpenShift Username*: Use your OPENTLC credentials to log into the OpenShift console
+*OpenShift Username*: Use your Red Hat associate SSO credentials to log into the OpenShift console
 
-*OpenShift Password*: Use your OPENTLC credentials to log into the OpenShift console
+*OpenShift Password*: Use your Red Hat associate SSO credentials to log into the OpenShift console
 
 [time=2]
 [id="logging-in-to-the-web-app"]
@@ -19,8 +19,8 @@ This tutorial demonstrates how to provide a secure access to the accident report
 
 . Launch a new a tab on the browser
 . Navigate to the OpenShift console link provided in the email
-. Choose the OpenTLC LDAP option
-. Login using your *OPENTLC Credentials* (RHPDS credentials)
+. Choose the Red Hat associate option
+. Login using your *Red Hat associate SSO Credentials*
 . Click on Topology > Select the project that starts with www (This is the project for the front end of our application deployed on OpenShift)
 
 . Click on the external route of the reporting application to access it
